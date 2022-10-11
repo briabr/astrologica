@@ -13,6 +13,7 @@
 // Function
 // getAPI
 // Grab user location
+    // May need to convert City name to coordinates
 // Autocomplete (optional)
 
 // User interaction
