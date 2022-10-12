@@ -2,7 +2,8 @@
 // City input
 let cityName = document.getElementById("cityInput");
 // Place to display events
-var eventEl = document.getElementById("event-card");
+var sunEl = document.getElementById("sun-card");
+var moonEl = document.getElementById("moon-card");
 // Submit button
 var button = document.getElementById("button");
 // Modal trigger (probably a button to open the menu)
@@ -40,27 +41,28 @@ function getAPI() {
 
 function dataFunc(data) {
     // clears previous data
-    eventEl.innerHTML = "";
+    sunEl.innerHTML = "";
+    moonEl.innerHTML = "";
 
     // creates card for the sunrise
     var sunriseTime = document.createElement("p");
     sunriseTime.innerHTML = "The sun will rise at " + data.sunrise + ".";
-    eventEl.appendChild(sunriseTime);
+    sunEl.appendChild(sunriseTime);
 
     // creates card for the sunset
     var sunsetTime = document.createElement("p");
     sunsetTime.innerHTML = "The sun will set at " + data.sunset + ".";
-    eventEl.appendChild(sunsetTime);
+    sunEl.appendChild(sunsetTime);
 
     // creates card for the moorise
     var moonriseTime = document.createElement("p");
     moonriseTime.innerHTML = "The moon will rise at " + data.moonrise + ".";
-    eventEl.appendChild(moonriseTime);
+    moonEl.appendChild(moonriseTime);
 
     // creates card for the moonset
     var moonsetTime = document.createElement("p");
     moonsetTime.innerHTML = "The moon will set at " + data.moonset + " the next day.";
-    eventEl.appendChild(moonsetTime);
+    moonEl.appendChild(moonsetTime);
 }
 
 // getAPI
