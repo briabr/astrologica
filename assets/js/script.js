@@ -2,11 +2,14 @@
 // Dependencies
 // City input
 let cityName = document.getElementById("cityInput");
+// Header
+var headerEl = document.getElementById("site-header");
 // Place to display events
 var sunEl = document.getElementById("sun-card");
 var moonEl = document.getElementById("moon-card");
 // Submit button
 var button = document.getElementById("button");
+var loadEl = document.getElementById("load-time");
 // Modal trigger (probably a button to open the menu)
 
 // Place to display saved events
@@ -47,6 +50,11 @@ function dataFunc(data) {
     sunEl.innerHTML = "";
     moonEl.innerHTML = "";
 
+    //create message for loading time 
+    var loadTime = document.createElement("p");
+    loadTime.innerHTML = "please wait few moments for the data to be loaded";
+    loadEl.appendChild(loadTime)
+
     // creates card for the sunrise
     var sunriseTime = document.createElement("p");
     sunriseTime.innerHTML = "The sun will rise at " + data.sunrise + ".";
@@ -68,6 +76,22 @@ function dataFunc(data) {
     moonEl.appendChild(moonsetTime);
 }
 
+
+function podAPI() {
+    nasaURL = "https://api.nasa.gov/planetary/apod?api_key=YZ4bgMRaiHrTUwO9oeZ8kogbpKg1YYlpyyovcfkU"
+    fetch(nasaURL)
+        .then(function (response){
+            return response.json();
+        })
+        .then(function(data) {
+            console.log(data);
+            headerEl.setAttribute("style", "background-image: url(" + data.url + ")")
+        }
+        )
+    }
+
+
+
 // getAPI
 // Grab user location
     // May need to convert City name to coordinates
@@ -80,6 +104,8 @@ function dataFunc(data) {
 // Button for user to save event
 // Button for user to remove saved event
 
+// Loads the picture of the day from NASA's API
+podAPI();
 button.addEventListener("click", getAPI);
 
   
