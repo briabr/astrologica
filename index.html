@@ -32,12 +32,12 @@
     <!-- Main -->
     <main>
         <section>
-            <button type="start-btn" data-open="test-modal" class="btn">Input Location (Time Coming Soon)</button>
+            <button id="start-btn" data-open="test-modal" class="btn">Input Location (Time Coming Soon)</button>
             <div class="reveal" id="test-modal" data-reveal>
                 <h1>Enter Location</h1>
                 <p id="locationInput">Location: <input type="text" id="cityInput"></p>
                 <p>Format: City, (State Code), (Country Code)</p>
-                <button id ="button" class="submit success button">Submit</button>
+                <button id ="button" class="submit success button" data-close>Submit</button>
                 <button class="close-button" data-close aria-label="Close modal" type="button">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -46,11 +46,17 @@
         </section>
         <section>
             <!-- Where the content is displayed -->
-            <div id="event-card">
-                <div id="sunrise"></div>
+             <div class ="card"id="event-card">
+
+                <div class ="card-section" id="sunrise"></div>
                 <div id="sunset"></div>
-                <div id="moonrise"></div>
+             </div>
+
+            <div class="card" id="event-card">
+                
+                <div class="card-section" id="moonrise"></div>
                 <div id="moonset"></div>
+                
             </div>
         </section>
     </main>
