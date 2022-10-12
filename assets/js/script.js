@@ -19,8 +19,6 @@ var apiKey = "0da3f74b44c04bb0a6dd84b85199b22c"
 // User location
 // Current date and time
 // NASA API
-const startButton = document.getElementById('start-btn')
-startButton.addEventListener('click', getAPI)
 
 
 // Function
