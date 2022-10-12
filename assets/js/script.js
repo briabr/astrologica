@@ -2,6 +2,8 @@
 // Dependencies
 // City input
 let cityName = document.getElementById("cityInput");
+// Header
+var headerEl = document.getElementById("site-header");
 // Place to display events
 var sunEl = document.getElementById("sun-card");
 var moonEl = document.getElementById("moon-card");
@@ -68,6 +70,22 @@ function dataFunc(data) {
     moonEl.appendChild(moonsetTime);
 }
 
+
+function podAPI() {
+    nasaURL = "https://api.nasa.gov/planetary/apod?api_key=YZ4bgMRaiHrTUwO9oeZ8kogbpKg1YYlpyyovcfkU"
+    fetch(nasaURL)
+        .then(function (response){
+            return response.json();
+        })
+        .then(function(data) {
+            console.log(data);
+            headerEl.setAttribute("style", "background-image: url(" + data.url + ")")
+        }
+        )
+    }
+
+
+
 // getAPI
 // Grab user location
     // May need to convert City name to coordinates
@@ -80,6 +98,8 @@ function dataFunc(data) {
 // Button for user to save event
 // Button for user to remove saved event
 
+// Loads the picture of the day from NASA's API
+podAPI();
 button.addEventListener("click", getAPI);
 
   
