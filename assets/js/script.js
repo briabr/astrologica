@@ -29,8 +29,31 @@ var sunrise = data.sunrise;
 var sunset = data.sunset;
 var moonrise = data.moonrise;
 var moonset = data.moonset;
+
+// creates card for the sunrise
 var sunriseCard = document.createElement("div");
 var sunriseTime = document.createElement("p");
 sunriseTime.innerHTML = sunrise;
 sunriseCard.appendChild(sunriseTime);
 eventEl.appendChild(sunriseCard);
+
+// creates card for the sunset
+var sunsetCard = document.createElement("div");
+var sunsetTime = document.createElement("p");
+sunsetTime.innerHTML = sunset;
+sunsetCard.appendChild(sunsetTime);
+eventEl.appendChild(sunsetCard);
+
+// creates card for the moorise
+var moonriseCard = document.createElement("div");
+var moonriseTime = document.createElement("p");
+moonriseTime.innerHTML = moonrise;
+moonriseCard.appendChild(moonriseTime);
+eventEl.appendChild(moonriseCard);
+
+// creates card for the moonset
+var moonsetCard = document.createElement("div");
+var moonsetTime = document.createElement("p");
+moonsetTime.innerHTML = moonset;
+moonsetCard.appendChild(moonsetTime);
+eventEl.appendChild(moonsetCard);
