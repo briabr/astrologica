@@ -38,3 +38,13 @@ getAPI()
     // Using a Modal?
 // Button for user to save event
 // Button for user to remove saved event
+
+document.getElementById("cityInput").defaultValue = "New York";
+function getInfo(){
+    let newName = document.getElementById("cityInput");
+    let City = document.getElementById("City");
+    //taking the user's input 
+    //and updating city name to the user's input
+    City.innerHTML = "--"+newCityName.value+"--"
+}
+  
