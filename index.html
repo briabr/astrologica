@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
 </head>
+
 <body>
     <!-- Header -->
     <header>
@@ -15,29 +17,47 @@
         <h1 id="site-name">Sunrise & Sunset</h1>
         <!-- Nav Bar -->
         <nav id="nav-bar">
-            <ul>  
+            <ul>
                 <div id="dropdown">
-            <!-- Include dropdown list of saved events -->
-                <!-- Button to delete saved info -->
+                    <!-- Include dropdown list of saved events -->
+                    <!-- Button to delete saved info -->
                 </div>
             </ul>
         </nav>
-        <h4 id="intro"> 
+        <h4 id="intro">
             <!-- Introduction Content -->
         </h4>
     </header>
 
     <!-- Main -->
     <main>
-        <section>   
-        <p id="locationInput">Location: <input type="text" id="cityInput"></p>
-        <button id="button">Search</button>        
-        <h2 id="city"></h2>
+        <section>
+            <button type="button" data-open="test-modal">Input Location (Time Coming Soon)</button>
+            <div class="reveal" id="test-modal" data-reveal>
+                <h1>Enter Location</h1>
+                <p id="locationInput">Location: <input type="text" id="cityInput"></p>
+                <p>Format: City, (State Code), (Country Code)</p>
+                <button id ="button" class="submit success button" data-close>Submit</button>
+                <button class="close-button" data-close aria-label="Close modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <h2 id="city">---New York---</h2>
         </section>
-
         <section>
             <!-- Where the content is displayed -->
-            <div id="event-card"></div>
+             <div class ="card"id="event-card">
+
+                <div class ="card-section" id="sunrise"></div>
+                <div id="sunset"></div>
+             </div>
+
+            <div class="card" id="event-card">
+                
+                <div class="card-section" id="moonrise"></div>
+                <div id="moonset"></div>
+                
+            </div>
         </section>
     </main>
 </body>
@@ -49,4 +69,5 @@
 <script src="js/vendor/what-input.js"></script>
 <script src="js/vendor/foundation.js"></script>
 <script src="js/app.js"></script>
+
 </html>
