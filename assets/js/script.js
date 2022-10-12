@@ -13,7 +13,7 @@ var apiKey = "0da3f74b44c04bb0a6dd84b85199b22c"
 
 // Function
 function getAPI() {
-    var requestURL = 'https://api.ipgeolocation.io/astronomy?apiKey=' + apiKey + '&location=Stamford,CT&date=2022-12-02';
+    var requestURL = 'https://api.ipgeolocation.io/astronomy?apiKey=' + apiKey + '&location=Stamford,CT';
 
     fetch(requestURL)
         .then(function (response){
