@@ -47,11 +47,14 @@ function dataFunc(data) {
     // clears previous data
     sunEl.innerHTML = "";
     moonEl.innerHTML = "";
+    loadEl.innerHTML = "";
 
     //create message for loading time 
     var loadTime = document.createElement("p");
-    loadTime.innerHTML = "please wait few moments for the data to be loaded";
-    loadEl.appendChild(loadTime)
+    loadTime.innerHTML = "Please wait few moments for the data to be loaded";
+    loadEl.appendChild(loadTime);
+    
+
 
     // creates card for the sunrise
     var sunriseTime = document.createElement("p");
