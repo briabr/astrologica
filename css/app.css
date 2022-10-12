@@ -1,11 +1,11 @@
+:root {
+    --hue-neutral: 200;
+  }
 .btn-grid {
     display: grid;
     grid-template-columns: repeat(2, auto);
     gap: 10px;
     margin: 20px 0;
-  }
-  :root {
-    --hue-neutral: 200;
   }
   .btn {
     --hue: var(--hue-neutral);
