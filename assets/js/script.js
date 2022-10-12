@@ -1,4 +1,5 @@
 // Dependencies
+var eventEl = document.getElementById("event-name")
 // City input
 // Sumbit button
 // Modal trigger (probably a button to open the menu)
@@ -23,7 +24,9 @@ function getAPI() {
             console.log(data)
             console.log(data.moonrise)
             console.log(data.sunrise)
-        })
+            dataFunc(data)
+        }      
+        )
 }
 
 getAPI()
@@ -38,6 +41,41 @@ getAPI()
     // Using a Modal?
 // Button for user to save event
 // Button for user to remove saved event
+
+function dataFunc(data) {
+    var sunrise = data.sunrise;
+    var sunset = data.sunset;
+    var moonrise = data.moonrise;
+    var moonset = data.moonset;
+
+    // creates card for the sunrise
+    var sunriseCard = document.createElement("div");
+    var sunriseTime = document.createElement("p");
+    sunriseTime.innerHTML = "The sun will rise at " + sunrise + ".";
+    sunriseCard.appendChild(sunriseTime);
+    eventEl.appendChild(sunriseCard);
+
+    // creates card for the sunset
+    var sunsetCard = document.createElement("div");
+    var sunsetTime = document.createElement("p");
+    sunsetTime.innerHTML = "The sun will set at " + sunset + ".";
+    sunsetCard.appendChild(sunsetTime);
+    eventEl.appendChild(sunsetCard);
+
+    // creates card for the moorise
+    var moonriseCard = document.createElement("div");
+    var moonriseTime = document.createElement("p");
+    moonriseTime.innerHTML = "The moon will rise at " + moonrise + ".";
+    moonriseCard.appendChild(moonriseTime);
+    eventEl.appendChild(moonriseCard);
+
+    // creates card for the moonset
+    var moonsetCard = document.createElement("div");
+    var moonsetTime = document.createElement("p");
+    moonsetTime.innerHTML = "The moon will set at " + moonset + ".";
+    moonsetCard.appendChild(moonsetTime);
+    eventEl.appendChild(moonsetCard);
+}
 
 document.getElementById("cityInput").defaultValue = "New York";
 function getInfo(){
