@@ -6,11 +6,27 @@
 // Place to display saved events
 
 // Data
+apiKey = "0da3f74b44c04bb0a6dd84b85199b22c"
 // User location
 // Current date and time
 // NASA API
 
 // Function
+function getAPI() {
+    var requestURL = 'https://api.ipgeolocation.io/astronomy?apiKey=' + apiKey + '&location=Stamford,CT&date=2022-12-02';
+
+    fetch(requestURL)
+        .then(function (response){
+            return response.json();
+        })
+        .then(function(data) {
+            console.log(data)
+            console.log(data.moonrise)
+            console.log(data.sunrise)
+        })
+}
+
+getAPI()
 // getAPI
 // Grab user location
     // May need to convert City name to coordinates
