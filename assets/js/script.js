@@ -9,6 +9,7 @@ var sunEl = document.getElementById("sun-card");
 var moonEl = document.getElementById("moon-card");
 // Submit button
 var button = document.getElementById("button");
+var loadEl = document.getElementById("load-time");
 // Modal trigger (probably a button to open the menu)
 
 // Place to display saved events
@@ -48,6 +49,11 @@ function dataFunc(data) {
     // clears previous data
     sunEl.innerHTML = "";
     moonEl.innerHTML = "";
+
+    //create message for loading time 
+    var loadTime = document.createElement("p");
+    loadTime.innerHTML = "please wait few moments for the data to be loaded";
+    loadEl.appendChild(loadTime)
 
     // creates card for the sunrise
     var sunriseTime = document.createElement("p");
