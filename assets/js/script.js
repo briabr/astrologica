@@ -1,3 +1,4 @@
+
 // Dependencies
 // City input
 let cityName = document.getElementById("cityInput");
