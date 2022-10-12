@@ -1,3 +1,4 @@
+
 // Dependencies
 var eventEl = document.getElementById("event-name")
 // City input
