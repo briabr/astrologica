@@ -43,18 +43,20 @@ function getAPI() {
         )
 }
 
+function loading() {
+    loadEl.innerHTML = "";
+    //create message for loading time 
+    var loadTime = document.createElement("p");
+    loadTime.innerHTML = "Please wait a few moments for the data to be loaded.";
+    loadEl.appendChild(loadTime);
+    getAPI();
+}
+
+
 function dataFunc(data) {
     // clears previous data
     sunEl.innerHTML = "";
     moonEl.innerHTML = "";
-    loadEl.innerHTML = "";
-
-    //create message for loading time 
-    var loadTime = document.createElement("p");
-    loadTime.innerHTML = "Please wait few moments for the data to be loaded";
-    loadEl.appendChild(loadTime);
-    
-
 
     // creates card for the sunrise
     var sunriseTime = document.createElement("p");
@@ -86,7 +88,7 @@ function podAPI() {
         })
         .then(function(data) {
             console.log(data);
-            headerEl.setAttribute("style", "background-image: url(" + data.url + ")")
+            headerEl.setAttribute("style", "background-image: url(" + data.url + ")");
         }
         )
     }
@@ -107,7 +109,7 @@ function podAPI() {
 
 // Loads the picture of the day from NASA's API
 podAPI();
-button.addEventListener("click", getAPI);
+button.addEventListener("click", loading);
 
   
 
