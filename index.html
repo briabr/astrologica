@@ -1,51 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Astrologica</title>
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
 </head>
+
 <body>
     <!-- Header -->
     <header>
         <!-- Site Name -->
-        <h1 id="site-name">Hello World!</h1>
+        <h1 id="site-name">Sunrise & Sunset</h1>
         <!-- Nav Bar -->
         <nav id="nav-bar">
-            <ul>  
+            <ul>
                 <div id="dropdown">
-            <!-- Include dropdown list of saved events -->
-                <!-- Button to delete saved info -->
+                    <!-- Include dropdown list of saved events -->
+                    <!-- Button to delete saved info -->
                 </div>
             </ul>
         </nav>
-        <h4 id="intro"> 
+        <h4 id="intro">
             <!-- Introduction Content -->
         </h4>
     </header>
 
     <!-- Main -->
     <main>
-        <section>   
-            <!-- Location function on side column -->
-            <input id="location-input">
-            <!-- Search button -->
-            <button id="submit"></button>
+        <section>
+            <button type="button" data-open="test-modal">Input Location (Time Coming Soon)</button>
+            <div class="reveal" id="test-modal" data-reveal>
+                <h1>Enter Location</h1>
+                <p id="locationInput">Location: <input type="text" id="cityInput"></p>
+                <p>Format: City, (State Code), (Country Code)</p>
+                <button id ="button" class="submit success button" data-close>Submit</button>
+                <button class="close-button" data-close aria-label="Close modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <h2 id="city">---New York---</h2>
         </section>
-
         <section>
             <!-- Where the content is displayed -->
-            <div>
-                <p id="event-name">
-                    <!-- Event name -->
-                </p>
-                <p id="event-time">
-                    <!-- Event time -->
-                </p>
-                <!-- Button to save info -->
+             <div class ="card"id="sun-card">
+
+                <div class ="card-section" id="sunrise"></div>
+                <div id="sunset"></div>
+             </div>
+
+            <div class="card" id="moon-card">
+                
+                <div class="card-section" id="moonrise"></div>
+                <div id="moonset"></div>
+                
             </div>
         </section>
     </main>
 </body>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="./assets/js/script.js"></script>
+<script src="js/vendor/jquery.js"></script>
+<script src="js/vendor/what-input.js"></script>
+<script src="js/vendor/foundation.js"></script>
+<script src="js/app.js"></script>
+
 </html>
