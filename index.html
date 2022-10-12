@@ -10,7 +10,7 @@
     <!-- Header -->
     <header>
         <!-- Site Name -->
-        <h1 id="site-name">Hello World!</h1>
+        <h1 id="site-name">Sunrise & Sunset</h1>
         <!-- Nav Bar -->
         <nav id="nav-bar">
             <ul>  
@@ -28,10 +28,13 @@
     <!-- Main -->
     <main>
         <section>   
-            <!-- Location function on side column -->
+        <p id="locationInput">Location: <input type="text" id="cityInput"></p>
+        <button type="button" onclick="getInfo()">Search</button>        
+        <h2 id="City">---New York---</h2>
+            <!-- Location function on side column
             <input id="location-input">
-            <!-- Search button -->
-            <button id="submit"></button>
+            Search button 
+            <button id="submit"></button> -->
         </section>
 
         <section>
@@ -48,4 +51,8 @@
         </section>
     </main>
 </body>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="./assets/js/script.js"></script>
 </html>
