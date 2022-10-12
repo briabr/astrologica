@@ -22,3 +22,15 @@
     // Using a Modal?
 // Button for user to save event
 // Button for user to remove saved event
+
+var eventEl = document.getElementById("event-name")
+
+var sunrise = data.sunrise;
+var sunset = data.sunset;
+var moonrise = data.moonrise;
+var moonset = data.moonset;
+var sunriseCard = document.createElement("div");
+var sunriseTime = document.createElement("p");
+sunriseTime.innerHTML = sunrise;
+sunriseCard.appendChild(sunriseTime);
+eventEl.appendChild(sunriseCard);
