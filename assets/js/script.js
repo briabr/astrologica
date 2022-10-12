@@ -25,10 +25,10 @@
 
 document.getElementById("cityInput").defaultValue = "New York";
 function getInfo(){
-    let newName = document.getElementById("cityInput");
+    let cityName = document.getElementById("cityInput");
     let city = document.getElementById("city");
     //taking the user's input 
     //and updating city name to the user's input
-    city.innerHTML = "--"+newName.value+"--"
+    city.innerHTML = "--"+cityName.value+"--"
 }
   
