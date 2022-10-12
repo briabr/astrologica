@@ -45,6 +45,6 @@ function getInfo(){
     let City = document.getElementById("City");
     //taking the user's input 
     //and updating city name to the user's input
-    City.innerHTML = "--"+newCityName.value+"--"
+    City.innerHTML = "--"+newName.value+"--"
 }
   
