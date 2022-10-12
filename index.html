@@ -32,29 +32,21 @@
     <!-- Main -->
     <main>
         <section>
-            <p id="locationInput">Location: <input type="text" id="cityInput"></p>
-            <button type="button" data-open="test-modal">Search</button>
+            <button type="button" data-open="test-modal">Input Location (Time Coming Soon)</button>
+            <div class="reveal" id="test-modal" data-reveal>
+                <h1>Enter Location</h1>
+                <p id="locationInput">Location: <input type="text" id="cityInput"></p>
+                <p>Format: City, (State Code), (Country Code)</p>
+                <button id ="button" class="submit success button">Submit</button>
+                <button class="close-button" data-close aria-label="Close modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
             <h2 id="city">---New York---</h2>
         </section>
-        <div class="reveal" id="test-modal" data-reveal>
-            <h1>Awesome. I Have It.</h1>
-            <p class="lead">Your couch. It is mine.</p>
-            <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
-            <button class="close-button" data-close aria-label="Close modal" type="button">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
         <section>
             <!-- Where the content is displayed -->
-            <div>
-                <p id="event-name">
-                    <!-- Event name -->
-                </p>
-                <p id="event-time">
-                    <!-- Event time -->
-                </p>
-                <!-- Button to save info -->
-            </div>
+            <div id="event-card"></div>
         </section>
     </main>
 </body>
