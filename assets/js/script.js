@@ -22,6 +22,11 @@ var apiKey = "0da3f74b44c04bb0a6dd84b85199b22c"
 
 
 // Function
+function onClick() {
+    clear();
+    loading();
+}
+
 function getAPI() {
     let cityName = document.getElementById("cityInput");
     let city = document.getElementById("city");
@@ -52,12 +57,13 @@ function loading() {
     getAPI();
 }
 
-
-function dataFunc(data) {
+function clear() {
     // clears previous data
     sunEl.innerHTML = "";
     moonEl.innerHTML = "";
+}
 
+function dataFunc(data) {
     // creates card for the sunrise
     var sunriseTime = document.createElement("p");
     sunriseTime.innerHTML = "The sun will rise at " + data.sunrise + ".";
@@ -109,7 +115,7 @@ function podAPI() {
 
 // Loads the picture of the day from NASA's API
 podAPI();
-button.addEventListener("click", loading);
+button.addEventListener("click", onClick);
 
   
 
