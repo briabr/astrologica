@@ -1,6 +1,11 @@
 :root {
     --hue-neutral: 200;
   }
+  
+section {
+  padding-left: 10px;
+}
+
 .btn-grid {
     display: grid;
     grid-template-columns: repeat(2, auto);
@@ -20,6 +25,8 @@
     border-color: black;
   }
 
-  section {
-    padding-left: 10px;
-  }
+
+.card-img {
+  width: 30px;
+}
+
