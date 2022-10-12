@@ -22,6 +22,11 @@ var apiKey = "0da3f74b44c04bb0a6dd84b85199b22c"
 
 
 // Function
+function onClick() {
+    clear();
+    loading();
+}
+
 function getAPI() {
     let cityName = document.getElementById("cityInput");
     let city = document.getElementById("city");
@@ -43,19 +48,22 @@ function getAPI() {
         )
 }
 
-function dataFunc(data) {
+function loading() {
+    loadEl.innerHTML = "";
+    //create message for loading time 
+    var loadTime = document.createElement("p");
+    loadTime.innerHTML = "Please wait a few moments for the data to be loaded.";
+    loadEl.appendChild(loadTime);
+    getAPI();
+}
+
+function clear() {
     // clears previous data
     sunEl.innerHTML = "";
     moonEl.innerHTML = "";
-    loadEl.innerHTML = "";
+}
 
-    //create message for loading time 
-    var loadTime = document.createElement("p");
-    loadTime.innerHTML = "Please wait few moments for the data to be loaded";
-    loadEl.appendChild(loadTime);
-    
-
-
+function dataFunc(data) {
     // creates card for the sunrise
     var sunriseTime = document.createElement("p");
     sunriseTime.innerHTML = "The sun will rise at " + data.sunrise + ".";
@@ -86,7 +94,7 @@ function podAPI() {
         })
         .then(function(data) {
             console.log(data);
-            headerEl.setAttribute("style", "background-image: url(" + data.url + ")")
+            headerEl.setAttribute("style", "background-image: url(" + data.url + ")");
         }
         )
     }
@@ -107,7 +115,7 @@ function podAPI() {
 
 // Loads the picture of the day from NASA's API
 podAPI();
-button.addEventListener("click", getAPI);
+button.addEventListener("click", onClick);
 
   
 
