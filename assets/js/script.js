@@ -1,6 +1,7 @@
 // Dependencies
 let cityName = document.getElementById("cityInput");
 var eventEl = document.getElementById("event-name")
+var button = document.getElementById("button");
 // City input
 // Sumbit button
 // Modal trigger (probably a button to open the menu)
@@ -12,6 +13,8 @@ var apiKey = "0da3f74b44c04bb0a6dd84b85199b22c"
 // User location
 // Current date and time
 // NASA API
+button.addEventListener("click", getAPI);
+
 
 // Function
 function getAPI() {
@@ -20,7 +23,7 @@ function getAPI() {
     //taking the user's input 
     //and updating city name to the user's input
     city.innerHTML = "--"+cityName.value+"--"
-    var requestURL = 'https://api.ipgeolocation.io/astronomy?apiKey=' + apiKey + '&location='+"+cityName.value"
+    var requestURL = 'https://api.ipgeolocation.io/astronomy?apiKey=' + apiKey + '&location='+"cityName.value"
 
     fetch(requestURL)
         .then(function (response){
@@ -92,3 +95,4 @@ function dataFunc(data) {
 //     city.innerHTML = "--"+cityName.value+"--"
 // }
   
+
