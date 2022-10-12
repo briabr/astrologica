@@ -51,28 +51,28 @@ function dataFunc(data) {
     // creates card for the sunrise
     var sunriseCard = document.createElement("div");
     var sunriseTime = document.createElement("p");
-    sunriseTime.innerHTML = sunrise;
+    sunriseTime.innerHTML = "The sun will rise at " + sunrise + ".";
     sunriseCard.appendChild(sunriseTime);
     eventEl.appendChild(sunriseCard);
 
     // creates card for the sunset
     var sunsetCard = document.createElement("div");
     var sunsetTime = document.createElement("p");
-    sunsetTime.innerHTML = sunset;
+    sunsetTime.innerHTML = "The sun will set at " + sunset + ".";
     sunsetCard.appendChild(sunsetTime);
     eventEl.appendChild(sunsetCard);
 
     // creates card for the moorise
     var moonriseCard = document.createElement("div");
     var moonriseTime = document.createElement("p");
-    moonriseTime.innerHTML = moonrise;
+    moonriseTime.innerHTML = "The moon will rise at " + moonrise + ".";
     moonriseCard.appendChild(moonriseTime);
     eventEl.appendChild(moonriseCard);
 
     // creates card for the moonset
     var moonsetCard = document.createElement("div");
     var moonsetTime = document.createElement("p");
-    moonsetTime.innerHTML = moonset;
+    moonsetTime.innerHTML = "The moon will set at " + moonset + ".";
     moonsetCard.appendChild(moonsetTime);
     eventEl.appendChild(moonsetCard);
 }
