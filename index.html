@@ -14,11 +14,13 @@
     <!-- Header -->
     <header>
         <!-- Site Name -->
-        <div class="top-bar">
-            <div class="top-bar-left">
-              <ul class="dropdown menu" data-dropdown-menu>
-                <li class="menu-text">Astrologica, check the Sunrise and Sunset anywhere!</li>
-          </div>
+        <h1
+        class="top-bar">
+       <div class="top-bar-left">
+         <ul class="dropdown menu" data-dropdown-menu>
+           <li class="menu-text">Astrologica, check the Sunrise or Sunset anywhere!</li>
+        </h1>
+        <!-- Nav Bar -->
         <nav id="nav-bar">
             <ul>
                 <div id="dropdown">
@@ -35,7 +37,7 @@
     <!-- Main -->
     <main>
         <section>
-            <button type="button" data-open="test-modal">Input Location (Time Coming Soon)</button>
+            <button id="start-btn" data-open="test-modal" class="btn">Input Location (Time Coming Soon)</button>
             <div class="reveal" id="test-modal" data-reveal>
                 <h1>Enter Location</h1>
                 <p id="locationInput">Location: <input type="text" id="cityInput"></p>
@@ -63,6 +65,7 @@
             </div>
         </section>
     </main>
+    <footer> <a href="https://eol.jsc.nasa.gov/ESRS/HDEV/">ISS Livestream</a></footer>
 </body>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
