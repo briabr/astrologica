@@ -1,4 +1,5 @@
 // Dependencies
+let cityName = document.getElementById("cityInput");
 var eventEl = document.getElementById("event-name")
 // City input
 // Sumbit button
@@ -14,7 +15,12 @@ var apiKey = "0da3f74b44c04bb0a6dd84b85199b22c"
 
 // Function
 function getAPI() {
-    var requestURL = 'https://api.ipgeolocation.io/astronomy?apiKey=' + apiKey + '&location=Stamford,CT';
+    let cityName = document.getElementById("cityInput");
+    let city = document.getElementById("city");
+    //taking the user's input 
+    //and updating city name to the user's input
+    city.innerHTML = "--"+cityName.value+"--"
+    var requestURL = 'https://api.ipgeolocation.io/astronomy?apiKey=' + apiKey + '&location='+cityName.value;
 
     fetch(requestURL)
         .then(function (response){
@@ -77,12 +83,12 @@ function dataFunc(data) {
     eventEl.appendChild(moonsetCard);
 }
 
-document.getElementById("cityInput").defaultValue = "New York";
-function getInfo(){
-    let cityName = document.getElementById("cityInput");
-    let city = document.getElementById("city");
-    //taking the user's input 
-    //and updating city name to the user's input
-    city.innerHTML = "--"+cityName.value+"--"
-}
+
+// function getInfo(){
+//     let cityName = document.getElementById("cityInput");
+//     let city = document.getElementById("city");
+//     //taking the user's input 
+//     //and updating city name to the user's input
+//     city.innerHTML = "--"+cityName.value+"--"
+// }
   
