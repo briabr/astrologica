@@ -45,7 +45,7 @@ function casing() {
 }
 
 function invalidCityMessage(){
-    $(document).foundation('open');
+    $('#errorModal').foundation('open');
 
 }
 
