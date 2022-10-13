@@ -49,12 +49,19 @@
             <button id="start-btn" data-open="test-modal" class="btn">Input Location (Time Coming Soon)</button>
             <div class="reveal" id="test-modal" data-reveal>
                 <h1>Enter Location</h1>
-                <p id="locationInput">Location: <input type="text" id="cityInput"></p>
-                <p id="format-guide">Format: City, (State Code), (Country Code)</p>
+                <p id="locationInput">Location: 
+                    <input type="text" id="cityInput">
+                </p>
+                <p>Format: City, (State Code), (Country Code)</p>
+                <p>
+                    <input type="text" id="date-input">
+                </p>
+                <p>Format: YYYY-MM-DD</p>
                 <button id="button" class="submit success button" data-close>Submit</button>
                 <button class="close-button" data-close aria-label="Close modal" type="button">
                     <span aria-hidden="true">&times;</span>
                 </button>
+                
             </div>
             <!-- error modal -->
             <div class="reveal" id="errorModal" data-reveal>
@@ -67,6 +74,14 @@
             <h2 id="city"></h2>
         </section>
         <section>
+            <!-- This button allows users to save searches and the second button allows them to view their saved searches -->
+                
+                
+                <button class="button button2"> Save this search</button>
+                <button class="button button1"> View your saved searches</button>
+                
+                
+            <h2 id="city">---New York---</h2>
             <div id="load-time"></div>
             <!-- Where the content is displayed -->
             <div class="card" id="sun-card">
