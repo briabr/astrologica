@@ -11,6 +11,7 @@ var moonEl = document.getElementById("moon-card");
 // Submit button
 var button = document.getElementById("button");
 var loadEl = document.getElementById("load-time");
+var errorModal = document.getElementById("errorModal");
 // Modal trigger (probably a button to open the menu)
 
 // Place to display saved events
@@ -43,6 +44,13 @@ function casing() {
     return upperCaseCityName;
 }
 
+function invalidCityMessage(){
+    $(document).foundation('open');
+
+}
+
+invalidCityMessage()
+
 function getAPI() {
     casing();
     //taking the user's input and updating city name to the user's input
@@ -52,7 +60,9 @@ function getAPI() {
     fetch(requestURL)
         .then(function (response) {
             if (!response.ok){
-                console.log('error')
+                console.log('error');
+                invalidCityMessage();
+
             } else{
             return response.json();
             }
