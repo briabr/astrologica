@@ -48,9 +48,6 @@ function invalidCityMessage(){
     $('#errorModal').foundation('open');
 
 }
-
-invalidCityMessage()
-
 function getAPI() {
     casing();
     //taking the user's input and updating city name to the user's input
