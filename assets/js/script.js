@@ -33,7 +33,7 @@ function getAPI() {
     //taking the user's input 
     //and updating city name to the user's input
     city.innerHTML = "--" + cityName.value + "--"
-    var requestURL = 'https://api.ipgeolocation.io/astronomy?apiKey=' + apiKey + '&location=' + cityName.value;
+    var requestURL = 'https://api.ipgeolocation.io/astronomy?apiKey=' + apiKey + '&location=' + cityName.value + '&date=2022-12-02';
 
     fetch(requestURL)
         .then(function (response){
