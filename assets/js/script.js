@@ -2,20 +2,11 @@
 // Dependencies
 // City input
 let cityName = document.getElementById("cityInput");
-<<<<<<< HEAD
-=======
-// Header
-var headerEl = document.getElementById("site-header");
->>>>>>> 145b1352adb4eef99bd8f7b5b4944620c277cfd7
 // Place to display events
 var sunEl = document.getElementById("sun-card");
 var moonEl = document.getElementById("moon-card");
 // Submit button
 var button = document.getElementById("button");
-<<<<<<< HEAD
-=======
-var loadEl = document.getElementById("load-time");
->>>>>>> 145b1352adb4eef99bd8f7b5b4944620c277cfd7
 // Modal trigger (probably a button to open the menu)
 
 // Place to display saved events
@@ -53,17 +44,6 @@ function dataFunc(data) {
     // clears previous data
     sunEl.innerHTML = "";
     moonEl.innerHTML = "";
-<<<<<<< HEAD
-=======
-    loadEl.innerHTML = "";
-
-    //create message for loading time 
-    var loadTime = document.createElement("p");
-    loadTime.innerHTML = "Please wait few moments for the data to be loaded";
-    loadEl.appendChild(loadTime);
-    
-
->>>>>>> 145b1352adb4eef99bd8f7b5b4944620c277cfd7
 
     // creates card for the sunrise
     var sunriseTime = document.createElement("p");
@@ -86,25 +66,6 @@ function dataFunc(data) {
     moonEl.appendChild(moonsetTime);
 }
 
-<<<<<<< HEAD
-=======
-
-function podAPI() {
-    nasaURL = "https://api.nasa.gov/planetary/apod?api_key=YZ4bgMRaiHrTUwO9oeZ8kogbpKg1YYlpyyovcfkU"
-    fetch(nasaURL)
-        .then(function (response){
-            return response.json();
-        })
-        .then(function(data) {
-            console.log(data);
-            headerEl.setAttribute("style", "background-image: url(" + data.url + ")")
-        }
-        )
-    }
-
-
-
->>>>>>> 145b1352adb4eef99bd8f7b5b4944620c277cfd7
 // getAPI
 // Grab user location
     // May need to convert City name to coordinates
@@ -117,13 +78,4 @@ function podAPI() {
 // Button for user to save event
 // Button for user to remove saved event
 
-<<<<<<< HEAD
 button.addEventListener("click", getAPI);
-=======
-// Loads the picture of the day from NASA's API
-podAPI();
-button.addEventListener("click", getAPI);
-
-  
-
->>>>>>> 145b1352adb4eef99bd8f7b5b4944620c277cfd7
