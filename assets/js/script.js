@@ -30,10 +30,11 @@ function onClick() {
 function getAPI() {
     let cityName = document.getElementById("cityInput");
     let city = document.getElementById("city");
+    let date = document.getElementById("date-input").value
     //taking the user's input 
     //and updating city name to the user's input
     city.innerHTML = "--" + cityName.value + "--"
-    var requestURL = 'https://api.ipgeolocation.io/astronomy?apiKey=' + apiKey + '&location=' + cityName.value + '&date=2022-12-02';
+    var requestURL = 'https://api.ipgeolocation.io/astronomy?apiKey=' + apiKey + '&location=' + cityName.value + '&date=' + date;
 
     fetch(requestURL)
         .then(function (response){
