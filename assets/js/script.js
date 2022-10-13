@@ -2,6 +2,7 @@
 // Dependencies
 // City input
 let cityName = document.getElementById("cityInput");
+let city = document.getElementById("city");
 // Header
 var headerEl = document.getElementById("site-header");
 // Place to display events
@@ -20,11 +21,26 @@ var apiKey = "0da3f74b44c04bb0a6dd84b85199b22c"
 // Current date and time
 // NASA API
 
+//create variable called history
+let history = []
+
 
 // Function
 function onClick() {
     clear();
     loading();
+    getAPI();
+}
+
+var upperCaseCityName = "";
+// will fix the display name of the city input so that it is correctly capitalized
+function casing() {
+    var cityArr = cityName.value.split(" ");
+
+    for (var i = 0; i < cityArr.length; i++){
+        upperCaseCityName += cityArr[i].charAt(0).toUpperCase() + cityArr[i].slice(1) + " ";
+    }
+    return upperCaseCityName;
 }
 
 function getAPI() {
@@ -35,7 +51,10 @@ function getAPI() {
     //taking the user's input 
     //and updating city name to the user's input
     //updates date to user's input
-    city.innerHTML = "--" + cityName.value + "--"
+    
+    casing();
+    //taking the user's input and updating city name to the user's input
+    city.innerHTML = "-- " + upperCaseCityName + "--"
     var requestURL = 'https://api.ipgeolocation.io/astronomy?apiKey=' + apiKey + '&location=' + cityName.value + '&date=' + date;
 
     fetch(requestURL)
@@ -43,10 +62,14 @@ function getAPI() {
             return response.json();
         })
         .then(function(data) {
-            console.log(data)
-            console.log(data.moonrise)
-            console.log(data.sunrise)
+
             dataFunc(data)
+
+            //Add cityName to history array
+            history.push(cityName.value)
+            //Set localStorage name/value pair
+            localStorage.setItem("cityList", [history])
+
         }      
         )
 }
@@ -57,7 +80,6 @@ function loading() {
     var loadTime = document.createElement("p");
     loadTime.innerHTML = "Please wait a few moments for the data to be loaded.";
     loadEl.appendChild(loadTime);
-    getAPI();
 }
 
 function clear() {
@@ -65,6 +87,18 @@ function clear() {
     sunEl.innerHTML = "";
     moonEl.innerHTML = "";
 }
+function loading(){
+    loadEl.innerHTML = "";
+
+    //create message for loading time 
+    var loadTime = document.createElement("p");
+    loadTime.innerHTML = "Please wait few moments for the data to be loaded";
+    loadEl.appendChild(loadTime);
+    
+
+
+}
+ 
 
 function dataFunc(data) {
     // creates card for the sunrise
@@ -88,6 +122,12 @@ function dataFunc(data) {
     moonEl.appendChild(moonsetTime);
 }
 
+function getFromLocalStorage(){
+    //retrieve localStorage name/value pair:
+    let historyData = localStorage.getItem("cityList")
+    console.log(historyData)
+    getFromLocalStorage()
+  }
 
 function podAPI() {
     nasaURL = "https://api.nasa.gov/planetary/apod?api_key=YZ4bgMRaiHrTUwO9oeZ8kogbpKg1YYlpyyovcfkU"
@@ -96,7 +136,6 @@ function podAPI() {
             return response.json();
         })
         .then(function(data) {
-            console.log(data);
             headerEl.setAttribute("style", "background-image: url(" + data.url + ")");
         }
         )
