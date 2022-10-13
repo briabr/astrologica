@@ -20,6 +20,9 @@ var apiKey = "0da3f74b44c04bb0a6dd84b85199b22c"
 // Current date and time
 // NASA API
 
+//create variable called history
+let history = []
+
 
 // Function
 function onClick() {
@@ -44,6 +47,11 @@ function getAPI() {
             console.log(data.moonrise)
             console.log(data.sunrise)
             dataFunc(data)
+
+            //Add cityName to history array
+            history.push(cityName.value)
+            //Set localStorage name/value pair
+            localStorage.setItem("cityList", [history])
         }      
         )
 }
@@ -85,6 +93,12 @@ function dataFunc(data) {
     moonEl.appendChild(moonsetTime);
 }
 
+function getFromLocalStorage(){
+    //retrieve localStorage name/value pair:
+    let historyData = localStorage.getItem("cityList")
+    console.log(historyData)
+    getFromLocalStorage()
+  }
 
 function podAPI() {
     nasaURL = "https://api.nasa.gov/planetary/apod?api_key=YZ4bgMRaiHrTUwO9oeZ8kogbpKg1YYlpyyovcfkU"
