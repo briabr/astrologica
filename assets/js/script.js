@@ -29,6 +29,7 @@ function onClick() {
 var upperCaseCityName = "";
 // Will fix the display name of the city input so that it is correctly capitalized
 function casing() {
+    upperCaseCityName = "";
     var cityArr = cityName.value.split(" ");
 
     for (var i = 0; i < cityArr.length; i++){
@@ -38,10 +39,18 @@ function casing() {
 }
 
 function getAPI() {
+    let cityName = document.getElementById("cityInput");
+    let city = document.getElementById("city");
+    // select user input date or current date
+    let date = document.getElementById("date-input").value ?? moment().format('YYYY-MM-DD');
+    //taking the user's input 
+    //and updating city name to the user's input
+    //updates date to user's input
+    
     casing();
     //Taking the user's input and updating city name to the user's input
     city.innerHTML = "-- " + upperCaseCityName + "--"
-    var requestURL = 'https://api.ipgeolocation.io/astronomy?apiKey=' + apiKey + '&location=' + cityName.value;
+    var requestURL = 'https://api.ipgeolocation.io/astronomy?apiKey=' + apiKey + '&location=' + cityName.value + '&date=' + date;
 
     fetch(requestURL)
         .then(function (response){
@@ -73,6 +82,8 @@ function clear() {
     sunEl.innerHTML = "";
     moonEl.innerHTML = "";
 }
+
+ 
 
 function dataFunc(data) {
     // Creates card for the sunrise
