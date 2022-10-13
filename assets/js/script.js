@@ -2,6 +2,7 @@
 // Dependencies
 // City input
 let cityName = document.getElementById("cityInput");
+let city = document.getElementById("city");
 // Header
 var headerEl = document.getElementById("site-header");
 // Place to display events
@@ -25,14 +26,24 @@ var apiKey = "0da3f74b44c04bb0a6dd84b85199b22c"
 function onClick() {
     clear();
     loading();
+    getAPI();
+}
+
+var upperCaseCityName = "";
+// will fix the display name of the city input so that it is correctly capitalized
+function casing() {
+    var cityArr = cityName.value.split(" ");
+
+    for (var i = 0; i < cityArr.length; i++){
+        upperCaseCityName += cityArr[i].charAt(0).toUpperCase() + cityArr[i].slice(1) + " ";
+    }
+    return upperCaseCityName;
 }
 
 function getAPI() {
-    let cityName = document.getElementById("cityInput");
-    let city = document.getElementById("city");
-    //taking the user's input 
-    //and updating city name to the user's input
-    city.innerHTML = "--" + cityName.value + "--"
+    casing();
+    //taking the user's input and updating city name to the user's input
+    city.innerHTML = "-- " + upperCaseCityName + "--"
     var requestURL = 'https://api.ipgeolocation.io/astronomy?apiKey=' + apiKey + '&location=' + cityName.value;
 
     fetch(requestURL)
@@ -40,10 +51,7 @@ function getAPI() {
             return response.json();
         })
         .then(function(data) {
-            console.log(data)
-            console.log(data.moonrise)
-            console.log(data.sunrise)
-            dataFunc(data)
+            dataFunc(data);
         }      
         )
 }
@@ -54,7 +62,6 @@ function loading() {
     var loadTime = document.createElement("p");
     loadTime.innerHTML = "Please wait a few moments for the data to be loaded.";
     loadEl.appendChild(loadTime);
-    getAPI();
 }
 
 function clear() {
@@ -93,7 +100,6 @@ function podAPI() {
             return response.json();
         })
         .then(function(data) {
-            console.log(data);
             headerEl.setAttribute("style", "background-image: url(" + data.url + ")");
         }
         )
