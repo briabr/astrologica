@@ -35,6 +35,7 @@ function onClick() {
 var upperCaseCityName = "";
 // will fix the display name of the city input so that it is correctly capitalized
 function casing() {
+    upperCaseCityName = "";
     var cityArr = cityName.value.split(" ");
 
     for (var i = 0; i < cityArr.length; i++){
