@@ -1,3 +1,4 @@
+//Dependencies
 // Create variable to store "city input" and "city" ids 
 let cityName = document.getElementById("cityInput");
 let city = document.getElementById("city");
