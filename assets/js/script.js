@@ -69,6 +69,7 @@ function getAPI() {
             }
         })
         .then(function(data) {
+          planetsAPI(data)
             //as soon as the data appears, stop loading 
             endLoading()
             // data loaded 
@@ -84,6 +85,22 @@ function getAPI() {
 
         )
 }
+
+function planetsAPI(data){
+    var latitude = data.location.latitude;
+    var longitude = data.location.longitude;
+
+    var planetURL = "https://visible-planets-api.herokuapp.com/v3?" + "latitude=" + latitude + "&longitude=" + longitude + "&showCoords=true"
+    fetch(planetURL)
+        .then(function (response){
+            return response.json();
+        })
+        .then(function(data2) {
+            console.log(data2)
+}
+        )
+}
+
 
 function loading() { 
     loadEl.innerHTML = "";
