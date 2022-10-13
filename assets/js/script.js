@@ -10,7 +10,7 @@ var moonEl = document.getElementById("moon-card");
 // Create variable to store "button" and "load-time" 
 var button = document.getElementById("button");
 var loadEl = document.getElementById("load-time");
-
+var errorModal = document.getElementById("errorModal");
 // Modal trigger (probably a button to open the menu)
 
 // Create variable to store API key
@@ -32,12 +32,16 @@ function casing() {
     upperCaseCityName = "";
     var cityArr = cityName.value.split(" ");
 
-    for (var i = 0; i < cityArr.length; i++){
+    for (var i = 0; i < cityArr.length; i++) {
         upperCaseCityName += cityArr[i].charAt(0).toUpperCase() + cityArr[i].slice(1) + " ";
     }
     return upperCaseCityName;
 }
 
+function invalidCityMessage(){
+    $('#errorModal').foundation('open');
+
+}
 function getAPI() {
     let cityName = document.getElementById("cityInput");
     let city = document.getElementById("city");
@@ -53,10 +57,17 @@ function getAPI() {
     var requestURL = 'https://api.ipgeolocation.io/astronomy?apiKey=' + apiKey + '&location=' + cityName.value + '&date=' + date;
 
     fetch(requestURL)
-        .then(function (response){
+        .then(function (response) {
+            if (!response.ok){
+                invalidCityMessage();
+
+            } else{
             return response.json();
+            }
         })
-        .then(function(data) {
+        .then(function (data) {
+            console.log(data)
+
 
             dataFunc(data)
 
@@ -64,8 +75,9 @@ function getAPI() {
             history.push(cityName.value)
             //Set localStorage name/value pair
             localStorage.setItem("cityList", [history])
+        }
 
-        }      
+
         )
 }
 
@@ -106,35 +118,35 @@ function dataFunc(data) {
     moonEl.appendChild(moonsetTime);
 }
 
-function getFromLocalStorage(){
-    //Retrieve localStorage name/value pair:
+function getFromLocalStorage() {
+    //retrieve localStorage name/value pair:
     let historyData = localStorage.getItem("cityList")
     console.log(historyData)
     getFromLocalStorage()
-  }
+}
 
 function podAPI() { 
     //Display picture of the day 
     nasaURL = "https://api.nasa.gov/planetary/apod?api_key=YZ4bgMRaiHrTUwO9oeZ8kogbpKg1YYlpyyovcfkU"
     fetch(nasaURL)
-        .then(function (response){
+        .then(function (response) {
             return response.json();
         })
-        .then(function(data) {
+        .then(function (data) {
             headerEl.setAttribute("style", "background-image: url(" + data.url + ")");
         }
         )
-    }
+}
 
 // getAPI
 // Grab user location
-    // May need to convert City name to coordinates
+// May need to convert City name to coordinates
 // Autocomplete (optional)
 
 // User interaction
 // Textbox for user to input location
-    // Submit button
-    // Using a Modal?
+// Submit button
+// Using a Modal?
 // Button for user to save event
 // Button for user to remove saved event
 
@@ -142,5 +154,5 @@ function podAPI() {
 podAPI();
 button.addEventListener("click", onClick);
 
-  
+
 
