@@ -51,23 +51,25 @@ function getAPI() {
 
     fetch(requestURL)
         .then(function (response) {
+            if (!response.ok){
+                console.log('error')
+            } else{
             return response.json();
+            }
         })
         .then(function (data) {
             console.log(data)
-            if (data.cod === '404') {
-                console.log('error')
-            } else {
 
-                dataFunc(data)
 
-                //Add cityName to history array
-                history.push(cityName.value)
-                //Set localStorage name/value pair
-                localStorage.setItem("cityList", [history])
-            }
+            dataFunc(data)
 
+            //Add cityName to history array
+            history.push(cityName.value)
+            //Set localStorage name/value pair
+            localStorage.setItem("cityList", [history])
         }
+
+
         )
 }
 
