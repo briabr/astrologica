@@ -16,6 +16,14 @@
     <header id="site-header">
         <!-- Site Name -->
         <h1 id="site-name">Astrologica!</h1>
+        <!-- switch for light/dark mode -->
+        <div class="switch small">
+            <input class="switch-input" id="smallSwitch" type="checkbox" name="exampleSwitch">
+            <label class="switch-paddle" for="smallSwitch">
+              <span class="show-for-sr">Small Portions Only</span>
+            </label>
+          </div>
+
         <h2 class="top-bar-left">
 
             <div class="top-bar-left"></div>
@@ -49,7 +57,7 @@
             <!-- button to open a modal to input a city name -->
             <button id="start-btn" data-open="test-modal" class="btn">Input Location (Time Coming Soon)</button>
             <div class="reveal" id="test-modal" data-reveal>
-                <h1>Enter Location</h1>
+                <h2>Enter Location</h2>
                 <p id="locationInput">Location: 
                     <input type="text" id="cityInput">
                 </p>
@@ -64,6 +72,17 @@
                 </button>
                 
             </div>
+            <!-- error modal -->
+            <div class="reveal" id="errorModal" data-reveal>
+                <p class="lead">Invalid City Name</p>
+                <p>Please check your spelling. The city you entered may also not be in our database.</p>
+                <button class="close-button" data-close aria-label="Close modal" type="button">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            <h2 id="city"></h2>
+        </section>
+        <section>
             <!-- This button allows users to save searches and the second button allows them to view their saved searches -->
                 
                 
@@ -71,7 +90,7 @@
                 <button class="button button1"> View your saved searches</button>
                 
                 
-            <h2 id="city">---New York---</h2>
+            <h2 id="city"></h2>
             <div id="load-time"></div>
             <div class="loaderContainer">
                 <!-- <div class="loader"></div> -->
@@ -101,10 +120,10 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="./assets/js/script.js"></script>
 <script src="js/vendor/jquery.js"></script>
 <script src="js/vendor/what-input.js"></script>
 <script src="js/vendor/foundation.js"></script>
 <script src="js/app.js"></script>
+<script src="./assets/js/script.js"></script>
 
 </html>
