@@ -83,7 +83,6 @@ function clear() {
     moonEl.innerHTML = "";
 }
 
- 
 
 function dataFunc(data) {
     // Creates card for the sunrise
