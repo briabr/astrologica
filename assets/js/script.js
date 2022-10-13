@@ -59,7 +59,6 @@ function getAPI() {
     fetch(requestURL)
         .then(function (response) {
             if (!response.ok){
-                console.log('error');
                 invalidCityMessage();
 
             } else{
