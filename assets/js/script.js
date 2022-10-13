@@ -10,7 +10,7 @@ var moonEl = document.getElementById("moon-card");
 // Create variable to store "button" and "load-time" 
 var button = document.getElementById("button");
 var loadEl = document.getElementById("load-time");
-var loaderEl = document.querySelector(".loader")
+var loaderEl = document.querySelector(".loaderContainer");
 
 // Modal trigger (probably a button to open the menu)
 
@@ -26,6 +26,7 @@ function onClick() {
     loading();
     getAPI();
 }
+
 
 var upperCaseCityName = "";
 // Will fix the display name of the city input so that it is correctly capitalized
@@ -58,8 +59,11 @@ function getAPI() {
             return response.json();
         })
         .then(function(data) {
-
+            //as soon as the data appears, stop loading 
+            endLoading()
+            // data loaded 
             dataFunc(data)
+            
 
             //Add a cityName to history array
             history.push(cityName.value)
@@ -76,9 +80,20 @@ function loading() {
     var loadTime = document.createElement("p");
     loadTime.innerHTML = "Please wait a few moments for the data to be loaded.";
     loadEl.appendChild(loadTime);
-    var loadSpinner = document.createElement("div");
-    loaderEl.appendChild(loadSpinner);
+    var loadSpinner = document.createElement("div");//create
+    loadSpinner.classList.add("loader");// build
+    loaderEl.appendChild(loadSpinner);// place
+
 }
+
+function endLoading(){
+    //end the loaded message 
+    loadEl.innerHTML = "";
+    //end the spinner 
+    loaderEl.innerHTML = "";
+
+}
+
 
 function clear() {
     // Clears previous data
