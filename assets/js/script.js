@@ -57,8 +57,9 @@ function getAPI() {
             return response.json();
         })
         .then(function(data) {
-
+            console.log(data)
             dataFunc(data)
+            planetsAPI(data)
 
             //Add a cityName to history array
             history.push(cityName.value)
@@ -68,6 +69,22 @@ function getAPI() {
         }      
         )
 }
+
+function planetsAPI(data){
+    var latitude = data.location.latitude;
+    var longitude = data.location.longitude;
+
+    var planetURL = "https://visible-planets-api.herokuapp.com/v3?" + "latitude=" + latitude + "&longitude=" + longitude + "&showCoords=true"
+    fetch(planetURL)
+        .then(function (response){
+            return response.json();
+        })
+        .then(function(data2) {
+            console.log(data2)
+}
+        )
+}
+
 
 function loading() { 
     loadEl.innerHTML = "";
