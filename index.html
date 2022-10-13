@@ -14,12 +14,13 @@
     <!-- Header -->
     <header id="site-header">
         <!-- Site Name -->
-        <h1
-        class="top-bar">
-       <div class="top-bar-left">
-         <ul class="dropdown menu" data-dropdown-menu>
-           <li class="menu-text">Astrologica, check the Sunrise or Sunset anywhere!</li>
-        </h1>
+        <h1 id="site-name">Astrologica!</h1>
+        <h2 class="top-bar-left">
+
+            <div class="top-bar-left"></div>
+            <ul class="dropdown menu" data-dropdown-menu>
+                <li class="menu-text"></li>
+        </h2>
         <!-- Nav Bar -->
         <nav id="nav-bar">
             <ul>
@@ -31,7 +32,8 @@
         </nav>
         <h2 id="intro">
             <!-- Introduction Content -->
-            <p> Welcome to Astrologica! This site allows you to check the Sunrise,Sunset,Moonrise and Moonset in any U.S. city.
+            <p> Welcome to Astrologica! This site allows you to check the Sunrise, Sunset, Moonrise, Moonset, and other astrological events in any
+                U.S. city.
                 Additionally, you can take a look at Nasa's picture of the day!
                 Be sure to save your searches for any future travels or events.
             </p>
@@ -41,6 +43,9 @@
     <!-- Main -->
     <main>
         <section>
+            <div>Check the sunrise and moonrise anywhere!</div>
+
+            <!-- button to open a modal to input a city name -->
             <button id="start-btn" data-open="test-modal" class="btn">Input Location (Time Coming Soon)</button>
             <div class="reveal" id="test-modal" data-reveal>
                 <h1>Enter Location</h1>
@@ -99,20 +104,25 @@
                 </body>
             <h2 id="city">---New York---</h2>
         </section>
+        
         <section>
             <div id="load-time"></div>
             <!-- Where the content is displayed -->
-             <div class ="card"id="sun-card">
+            <div class="card" id="sun-card">
 
-                <div class ="card-section" id="sunrise"></div>
+                <div class="card-section" id="sunrise"></div>
                 <div id="sunset"></div>
-             </div>
+                <div class=""> <img src="">
+                </div>
+            </div>
 
             <div class="card" id="moon-card">
-                
+
                 <div class="card-section" id="moonrise"></div>
                 <div id="moonset"></div>
-                
+                <div class="">
+                    <img src="">
+                </div>
             </div>
         </section>
     </main>

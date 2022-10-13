@@ -2,11 +2,15 @@
 // Dependencies
 // City input
 let cityName = document.getElementById("cityInput");
+let city = document.getElementById("city");
+// Header
+var headerEl = document.getElementById("site-header");
 // Place to display events
 var sunEl = document.getElementById("sun-card");
 var moonEl = document.getElementById("moon-card");
 // Submit button
 var button = document.getElementById("button");
+var loadEl = document.getElementById("load-time");
 // Modal trigger (probably a button to open the menu)
 
 // Place to display saved events
@@ -17,14 +21,32 @@ var apiKey = "0da3f74b44c04bb0a6dd84b85199b22c"
 // Current date and time
 // NASA API
 
+//create variable called history
+let history = []
+
 
 // Function
+function onClick() {
+    clear();
+    loading();
+    getAPI();
+}
+
+var upperCaseCityName = "";
+// will fix the display name of the city input so that it is correctly capitalized
+function casing() {
+    var cityArr = cityName.value.split(" ");
+
+    for (var i = 0; i < cityArr.length; i++){
+        upperCaseCityName += cityArr[i].charAt(0).toUpperCase() + cityArr[i].slice(1) + " ";
+    }
+    return upperCaseCityName;
+}
+
 function getAPI() {
-    let cityName = document.getElementById("cityInput");
-    let city = document.getElementById("city");
-    //taking the user's input 
-    //and updating city name to the user's input
-    city.innerHTML = "--" + cityName.value + "--"
+    casing();
+    //taking the user's input and updating city name to the user's input
+    city.innerHTML = "-- " + upperCaseCityName + "--"
     var requestURL = 'https://api.ipgeolocation.io/astronomy?apiKey=' + apiKey + '&location=' + cityName.value;
 
     fetch(requestURL)
@@ -32,19 +54,35 @@ function getAPI() {
             return response.json();
         })
         .then(function(data) {
-            console.log(data)
-            console.log(data.moonrise)
-            console.log(data.sunrise)
+
             dataFunc(data)
+
+            //Add cityName to history array
+            history.push(cityName.value)
+            //Set localStorage name/value pair
+            localStorage.setItem("cityList", [history])
+
         }      
         )
 }
 
-function dataFunc(data) {
+function loading() {
+    loadEl.innerHTML = "";
+    //create message for loading time 
+    var loadTime = document.createElement("p");
+    loadTime.innerHTML = "Please wait a few moments for the data to be loaded.";
+    loadEl.appendChild(loadTime);
+}
+
+function clear() {
     // clears previous data
     sunEl.innerHTML = "";
     moonEl.innerHTML = "";
+}
 
+ 
+
+function dataFunc(data) {
     // creates card for the sunrise
     var sunriseTime = document.createElement("p");
     sunriseTime.innerHTML = "The sun will rise at " + data.sunrise + ".";
@@ -66,6 +104,27 @@ function dataFunc(data) {
     moonEl.appendChild(moonsetTime);
 }
 
+function getFromLocalStorage(){
+    //retrieve localStorage name/value pair:
+    let historyData = localStorage.getItem("cityList")
+    console.log(historyData)
+    getFromLocalStorage()
+  }
+
+function podAPI() {
+    nasaURL = "https://api.nasa.gov/planetary/apod?api_key=YZ4bgMRaiHrTUwO9oeZ8kogbpKg1YYlpyyovcfkU"
+    fetch(nasaURL)
+        .then(function (response){
+            return response.json();
+        })
+        .then(function(data) {
+            headerEl.setAttribute("style", "background-image: url(" + data.url + ")");
+        }
+        )
+    }
+
+
+
 // getAPI
 // Grab user location
     // May need to convert City name to coordinates
@@ -78,4 +137,9 @@ function dataFunc(data) {
 // Button for user to save event
 // Button for user to remove saved event
 
-button.addEventListener("click", getAPI);
+// Loads the picture of the day from NASA's API
+podAPI();
+button.addEventListener("click", onClick);
+
+  
+
