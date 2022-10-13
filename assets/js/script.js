@@ -37,7 +37,7 @@ var upperCaseCityName = "";
 function casing() {
     var cityArr = cityName.value.split(" ");
 
-    for (var i = 0; i < cityArr.length; i++){
+    for (var i = 0; i < cityArr.length; i++) {
         upperCaseCityName += cityArr[i].charAt(0).toUpperCase() + cityArr[i].slice(1) + " ";
     }
     return upperCaseCityName;
@@ -50,19 +50,24 @@ function getAPI() {
     var requestURL = 'https://api.ipgeolocation.io/astronomy?apiKey=' + apiKey + '&location=' + cityName.value;
 
     fetch(requestURL)
-        .then(function (response){
+        .then(function (response) {
             return response.json();
         })
-        .then(function(data) {
+        .then(function (data) {
+            console.log(data)
+            if (data.cod === '404') {
+                console.log('error')
+            } else {
 
-            dataFunc(data)
+                dataFunc(data)
 
-            //Add cityName to history array
-            history.push(cityName.value)
-            //Set localStorage name/value pair
-            localStorage.setItem("cityList", [history])
+                //Add cityName to history array
+                history.push(cityName.value)
+                //Set localStorage name/value pair
+                localStorage.setItem("cityList", [history])
+            }
 
-        }      
+        }
         )
 }
 
@@ -80,7 +85,7 @@ function clear() {
     moonEl.innerHTML = "";
 }
 
- 
+
 
 function dataFunc(data) {
     // creates card for the sunrise
@@ -104,36 +109,36 @@ function dataFunc(data) {
     moonEl.appendChild(moonsetTime);
 }
 
-function getFromLocalStorage(){
+function getFromLocalStorage() {
     //retrieve localStorage name/value pair:
     let historyData = localStorage.getItem("cityList")
     console.log(historyData)
     getFromLocalStorage()
-  }
+}
 
 function podAPI() {
     nasaURL = "https://api.nasa.gov/planetary/apod?api_key=YZ4bgMRaiHrTUwO9oeZ8kogbpKg1YYlpyyovcfkU"
     fetch(nasaURL)
-        .then(function (response){
+        .then(function (response) {
             return response.json();
         })
-        .then(function(data) {
+        .then(function (data) {
             headerEl.setAttribute("style", "background-image: url(" + data.url + ")");
         }
         )
-    }
+}
 
 
 
 // getAPI
 // Grab user location
-    // May need to convert City name to coordinates
+// May need to convert City name to coordinates
 // Autocomplete (optional)
 
 // User interaction
 // Textbox for user to input location
-    // Submit button
-    // Using a Modal?
+// Submit button
+// Using a Modal?
 // Button for user to save event
 // Button for user to remove saved event
 
@@ -141,5 +146,5 @@ function podAPI() {
 podAPI();
 button.addEventListener("click", onClick);
 
-  
+
 
