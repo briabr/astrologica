@@ -1,30 +1,29 @@
-
 // Dependencies
-// City input
+// Create variable to store "city input" id retrieved from html
 let cityName = document.getElementById("cityInput");
-// Header
+// Create variable to store "site-header" id retrieved from html
 var headerEl = document.getElementById("site-header");
-// Place to display events
+// Create variable to display events
 var sunEl = document.getElementById("sun-card");
 var moonEl = document.getElementById("moon-card");
-// Submit button
+// Create variable to store "button" and "load-time" id retrieved from html
 var button = document.getElementById("button");
 var loadEl = document.getElementById("load-time");
 // Modal trigger (probably a button to open the menu)
 
 // Place to display saved events
 
-// Data
+// Create variable to store API key
 var apiKey = "0da3f74b44c04bb0a6dd84b85199b22c"
 // User location
 // Current date and time
 // NASA API
 
-//create variable called history
+//Create variable called history for localStorage function
 let history = []
 
 
-// Function
+// Create onclick function calling the clear() and loading() functions.
 function onClick() {
     clear();
     loading();
@@ -48,7 +47,7 @@ function getAPI() {
             console.log(data.sunrise)
             dataFunc(data)
 
-            //Add cityName to history array
+            //Add a cityName to history array
             history.push(cityName.value)
             //Set localStorage name/value pair
             localStorage.setItem("cityList", [history])
@@ -70,18 +69,6 @@ function clear() {
     sunEl.innerHTML = "";
     moonEl.innerHTML = "";
 }
-function loading(){
-    loadEl.innerHTML = "";
-
-    //create message for loading time 
-    var loadTime = document.createElement("p");
-    loadTime.innerHTML = "Please wait few moments for the data to be loaded";
-    loadEl.appendChild(loadTime);
-    
-
-
-}
- 
 
 function dataFunc(data) {
     // creates card for the sunrise
