@@ -70,6 +70,18 @@ function clear() {
     sunEl.innerHTML = "";
     moonEl.innerHTML = "";
 }
+function loading(){
+    loadEl.innerHTML = "";
+
+    //create message for loading time 
+    var loadTime = document.createElement("p");
+    loadTime.innerHTML = "Please wait few moments for the data to be loaded";
+    loadEl.appendChild(loadTime);
+    
+
+
+}
+ 
 
 function dataFunc(data) {
     // creates card for the sunrise
