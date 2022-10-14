@@ -97,4 +97,5 @@ section {
 .top-bar {
   border-radius: 8px;
   display: inline-block;
+  margin-bottom: 7px;
 }
