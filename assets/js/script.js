@@ -7,6 +7,7 @@ var headerEl = document.getElementById("site-header");
 // Create variable to display events
 var sunEl = document.getElementById("sun-card");
 var moonEl = document.getElementById("moon-card");
+var planetEl = document.getElementById("planet-card");
 // Create variable to store "button" and "load-time" 
 var button = document.getElementById("button");
 var loadEl = document.getElementById("load-time");
@@ -19,6 +20,7 @@ var savedSearch = document.getElementById("savedSearch");
 var errorModal = document.getElementById("errorModal");
 // Modal trigger (probably a button to open the menu)
 
+var startbtnEl = document.getElementById("start-btn");
 // Create variable to store API key
 var apiKey = "0da3f74b44c04bb0a6dd84b85199b22c";
 
@@ -38,6 +40,7 @@ function clear() {
     // Clears previous data
     sunEl.innerHTML = "";
     moonEl.innerHTML = "";
+    planetEl.innerHTML = "";
 }
 
 
@@ -50,7 +53,7 @@ function loading() {
     var loadSpinner = document.createElement("div");//create
     loadSpinner.classList.add("loader");// build
     loaderEl.appendChild(loadSpinner);// place
-    
+    startbtnEl.disabled = true;
 }
 
 
@@ -59,7 +62,7 @@ function endLoading() {
     loadEl.innerHTML = "";
     //end the spinner 
     loaderEl.innerHTML = "";
-
+    startbtnEl.disabled = false;
 }
 
 
@@ -156,14 +159,31 @@ function planetsAPI(data) {
     })
     .then(function (data2) {
         console.log(data2);
+        var celestialBodies = data2.data
+        var filteredData = celestialBodies.filter(function(body) {
+            return body.nakedEyeObject});
+        console.log(filteredData);
+        planetData(filteredData);
     })
 }
 
+function planetData(filteredData) {
+    planetEl.setAttribute("class","card");
+    var caption = document.createElement("p");
+    caption.textContent = "Under optimal conditions you can currently see:"
+    planetEl.appendChild(caption);
+    for (i=0; i < filteredData.length; i++) {
+        var visibleBody = document.createElement("p");
+        visibleBody.innerHTML = filteredData[i].name;
+        planetEl.appendChild(visibleBody);
+    }
+}
 
 function dataFunc(data) {
     sunEl.innerHTML = "";
     moonEl.innerHTML = "";
     // Creates card for the sunrise
+    sunEl.setAttribute("class", "card")
     var sunriseTime = document.createElement("p");
     sunriseTime.innerHTML = "The sun will rise at " + data.sunrise + ".";
     sunEl.appendChild(sunriseTime);
@@ -174,6 +194,7 @@ function dataFunc(data) {
     sunEl.appendChild(sunsetTime);
     
     // Creates card for the moorise
+    moonEl.setAttribute("class", "card")
     var moonriseTime = document.createElement("p");
     moonriseTime.innerHTML = "The moon will rise at " + data.moonrise + ".";
     moonEl.appendChild(moonriseTime);

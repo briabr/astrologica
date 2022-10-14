@@ -16,13 +16,6 @@
     <header id="site-header">
         <!-- Site Name -->
         <h1 id="site-name">Astrologica!</h1>
-        <!-- switch for light/dark mode -->
-        <div class="switch small">
-            <input class="switch-input" id="smallSwitch" type="checkbox" name="exampleSwitch">
-            <label class="switch-paddle" for="smallSwitch">
-              <span class="show-for-sr">Small Portions Only</span>
-            </label>
-          </div>
 
         <h2 class="top-bar-left">
 
@@ -41,11 +34,7 @@
         </nav>
         <h2 id="intro">
             <!-- Introduction Content -->
-            <p> Welcome to Astrologica! This site allows you to check the Sunrise, Sunset, Moonrise, Moonset, and other astrological events in any
-                U.S. city.
-                Additionally, you can take a look at Nasa's picture of the day!
-                Be sure to save your searches for any future travels or events.
-            </p>
+            
         </h2>
     </header>
 
@@ -55,49 +44,63 @@
             <div class="title-bar" data-responsive-toggle="example-animated-menu" data-hide-for="medium">
                 <button class="menu-icon" type="button" data-toggle></button>
                 <div class="title-bar-title">Menu</div>
-              </div>
-              
-              <div class="top-bar" id="example-animated-menu" data-animate="hinge-in-from-top spin-out">
+            </div>
+
+            <div class="top-bar" id="example-animated-menu" data-animate="hinge-in-from-top spin-out">
                 <div class="top-bar-left">
+
                   <ul class="dropdown menu" data-dropdown-menu>
-                    <li class="menu-text">Check the sunrise and moonrise anywhere!</li>
                     <li>
-                      <a href="#">Menu</a>
+                      <a href="#">Learn More</a>
                       <ul class="menu vertical">
                         <li><a href="#">About Astrologica</a></li>
-                        <li><a href="#">Meet The Team!</a></li>
-                        <li><a href="#">Free Resources</a></li>
+                        <p> Welcome to Astrologica! This site allows you to check the Sunrise, Sunset, Moonrise, Moonset, and other astrological events in any
+                            U.S. city.
+                            Additionally, you can take a look at Nasa's picture of the day!
+                            Be sure to save your searches for any future travels or events.
+                        </p>
                       </ul>
+                      <li>
+                        <a href="#">Our Resources</a>
+                        <ul class="menu vertical">
+                          <li><a href="#">Our Data Sources</a></li>
+                          <p>https://get.foundation/</p>
+                        <p>https://api.nasa.gov/</p>
+                        </ul>
+                      </li>
                     </li>
                   </ul>
+
                 </div>
-              </div>
+            </div>
             <!-- button to open a modal to input a city name -->
-            <button id="start-btn" data-open="test-modal" class="btn">Input Location (Time Coming Soon)</button>
-            <div class="reveal" id="test-modal" data-reveal>
-                <h2>Enter Location</h2>
-                <p id="locationInput">Location: 
+
+            <div>
+                <button id="start-btn" data-open="test-modal" class="btn">Input Location and Date</button>
+
+                <div class="reveal" id="test-modal" data-reveal>
+                    <h2>Enter Location</h2>
+                    <label for="cityInput">City: <br>Format: City, (State), (Country Code)</label>
                     <input type="text" id="cityInput">
-                </p>
-                <p>Format: City, (State Code), (Country Code)</p>
-                <p>
+                    <label for="date-input">Date (Optional):<br>Format: YYYY-MM-DD</label>
                     <input type="text" id="date-input">
-                </p>
-                <p>Format: YYYY-MM-DD</p>
-                <button id="button" class="submit success button" data-close>Submit</button>
-                <button class="close-button" data-close aria-label="Close modal" type="button">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                
+                    
+                    <button id="button" class="submit success button" data-close>Submit</button>
+                    <button class="close-button" data-close aria-label="Close modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
             </div>
             <!-- error modal -->
             <div class="reveal" id="errorModal" data-reveal>
-                <p class="lead">Invalid City Name</p>
-                <p>Please check your spelling. The city you entered may also not be in our database.</p>
+                <p class="lead">Invalid City Name or Date</p>
+                <p>Please check your spelling. The city you entered may also not be in our database. The date must be
+                    written in YYYY-MM-DD format.</p>
                 <button class="close-button" data-close aria-label="Close modal" type="button">
-                  <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">&times;</span>
                 </button>
-              </div>
+            </div>
             <h2 id="city"></h2>
         </section>
         <section>
@@ -113,21 +116,22 @@
             <div class="loaderContainer">
                 <!-- <div class="loader"></div> -->
             </div>
-            
+
             <!-- Where the content is displayed -->
             <div id="savedSearch">
             </div>
             <button></button>
             <div class="card" id="sun-card">
+            <div class="" id="sun-card">
 
                 <div class="card-section" id="sunrise"></div>
                 <div id="sunset"></div>
-                <div class=""> 
+                <div class="">
                     <img src="">
                 </div>
             </div>
 
-            <div class="card" id="moon-card">
+            <div class="" id="moon-card">
 
                 <div class="card-section" id="moonrise"></div>
                 <div id="moonset"></div>
@@ -135,9 +139,27 @@
                     <img src="">
                 </div>
             </div>
+            <div class="" id="planet-card">
+                <div class="card-section" id="visible-bodies"></div>
+                <div class="">
+                    <img src="" alt="">
+                </div>
+            </div>
         </section>
     </main>
-    <footer id="footer-style"> <a href="https://eol.jsc.nasa.gov/ESRS/HDEV/" target="_blank">ISS Livestream</a></footer>
+    <footer id="footer-style">
+        <p>If you would like to view the ISS in real-time:
+            <a href="https://eol.jsc.nasa.gov/ESRS/HDEV/" target="_blank">ISS Livestream</a>
+        </p>
+        <p id="creators">This page was created by
+            <a href="https://github.com/alices9" target="_blank">Alice</a>,
+            <a href="https://github.com/briabr" target="_blank">Bria</a>,
+            <a href="https://github.com/Cwyan2483" target="_blank">Connor</a>,
+            <a href="https://github.com/DBanfieldKeller" target="_blank">Daniel</a>, and
+            <a href="https://github.com/JulesJ93" target="_blank">Jules</a>. Please click to view our GitHub pages.
+        </p>
+        <p>Thank you for visiting😊</p>
+    </footer>
 </body>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
