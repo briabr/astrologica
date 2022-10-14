@@ -2,6 +2,10 @@
   --hue-neutral: 200;
 }
 
+body {
+  background-color: gray;
+}
+
 section {
   padding-left: 10px;
 }
@@ -88,3 +92,4 @@ section {
 #footer-style {
   background: linear-gradient(180deg, #b81cdf 0%, rgba(125, 26, 203, 0.0677083) 99.99%, rgba(211, 206, 206, 0) 100%);
 }
+
