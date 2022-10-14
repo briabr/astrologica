@@ -20,74 +20,77 @@
         <div class="top-bar float-right" id="example-animated-menu" data-animate="hinge-in-from-top spin-out">
             <div class="top-bar-left">
 
-              <ul class="dropdown menu" data-dropdown-menu>
-                <li>
-                  <a href="#">Learn More</a>
-                  <ul class="menu vertical">
-                    <li><a href="#">About Astrologica</a></li>
-                    <p> Welcome to Astrologica! This site allows you to check the Sunrise, Sunset, Moonrise, Moonset, and other astrological events in any
-                        U.S. city.
-                        Additionally, you can take a look at Nasa's picture of the day!
-                        Be sure to save your searches for any future travels or events.
-                    </p>
-                  </ul>
-                  <li>
-                    <a href="#">Our Resources</a>
-                    <ul class="menu vertical">
-                      <li>Our Data Sources:</li>
-                      <a href="https://get.foundation/">CSS Framework</a>
-                    <a href="https://api.nasa.gov/">NASA API</a>
-                    </ul>
-                  </li>
-                </li>
-              </ul>
+                <ul class="dropdown menu" data-dropdown-menu>
+                    <li>
+                        <a href="#">Learn More</a>
+                        <ul class="menu vertical">
+                            <li id="about-tag">About Astrologica</li>
+                            <p id="intro"> Welcome to Astrologica! This site allows you to check the Sunrise, Sunset,
+                                Moonrise, Moonset, and other astrological events in any
+                                U.S. city.
+                                Additionally, you can take a look at Nasa's picture of the day!
+                                Be sure to save your searches for any future travels or events.
+                            </p>
+                        </ul>
+                    <li>
+                        <a href="#">Our Resources</a>
+                        <ul class="menu vertical">
+                            <li id="about-tag">Our Data Sources:</li>
+                            <a href="https://get.foundation/" target="_blank">CSS Framework</a>
+                            <a href="https://ipgeolocation.io/documentation.html" target="_blank">Geolocation API</a>
+                            <a href="https://api.nasa.gov/" target="_blank">NASA API</a>
+                            <a href="https://github.com/csymlstd/visible-planets-api" target="_blank">Visible Planets API</a>
+                        </ul>
+                    </li>
+                    </li>
+                </ul>
 
             </div>
         </div>
-        
+
     </header>
 
     <!-- Main -->
     <main>
- 
-            <!-- button to open a modal to input a city name -->
 
-            <div>
-                <button id="start-btn" data-open="test-modal" class="btn">Input Location and Date</button>
+        <!-- button to open a modal to input a city name -->
 
-                <div class="reveal" id="test-modal" data-reveal>
-                    <h2>Enter Location</h2>
-                    <label for="cityInput">City: <br>Format: City, (State), (Country Code)</label>
-                    <input type="text" id="cityInput">
-                    <label for="date-input">Date (Optional):<br>Format: YYYY-MM-DD</label>
-                    <input type="text" id="date-input">
-                    
-                    <button id="button" class="submit success button" data-close>Submit</button>
-                    <button class="close-button" data-close aria-label="Close modal" type="button">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+        <div>
+            <button id="start-btn" data-open="test-modal" class="btn">Input Location and Date</button>
 
-                </div>
-            </div>
-            <!-- error modal -->
-            <div class="reveal" id="errorModal" data-reveal>
-                <p class="lead">Invalid City Name or Date</p>
-                <p>Please check your spelling. The city you entered may also not be in our database. The date must be
-                    written in YYYY-MM-DD format.</p>
+            <div class="reveal" id="test-modal" data-reveal>
+                <h2>Enter Location</h2>
+                <label for="cityInput">City: <br>Format: City, (State), (Country Code)</label>
+                <input type="text" id="cityInput">
+                <label for="date-input">Date (Optional):<br>Format: YYYY-MM-DD</label>
+                <input type="text" id="date-input">
+
+                <button id="button" class="submit success button" data-close>Submit</button>
                 <button class="close-button" data-close aria-label="Close modal" type="button">
                     <span aria-hidden="true">&times;</span>
                 </button>
+
             </div>
-            <h2 id="city"></h2>
+        </div>
+        <!-- error modal -->
+        <div class="reveal" id="errorModal" data-reveal>
+            <p class="lead">Invalid City Name or Date</p>
+            <p>Please check your spelling. The city you entered may also not be in our database. The date must be
+                written in YYYY-MM-DD format.</p>
+            <button class="close-button" data-close aria-label="Close modal" type="button">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <h2 id="city"></h2>
         </section>
         <section>
             <!-- This button allows users to save searches and the second button allows them to view their saved searches -->
-                
-                
-                <button class="button button2"> Save this search</button>
-                <button class="button button1" id="showSavedSearches"> View your saved searches</button>
-                
-                
+
+
+            <button class="button button2"> Save this search</button>
+            <button class="button button1" id="showSavedSearches"> View your saved searches</button>
+
+
             <h2 id="city"></h2>
             <div id="load-time"></div>
             <div class="loaderContainer">
@@ -98,7 +101,7 @@
             <div id="savedSearch">
             </div>
             <button></button>
- 
+
             <div class="" id="sun-card">
 
                 <div class="card-section" id="sunrise"></div>
