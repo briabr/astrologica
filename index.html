@@ -16,7 +16,7 @@
     <header id="site-header">
         <!-- Site Name -->
         <h1 id="site-name">Astrologica!</h1>
-    
+
         <h2 class="top-bar-left">
 
             <div class="top-bar-left"></div>
@@ -77,29 +77,27 @@
             <!-- button to open a modal to input a city name -->
 
             <div>
-            <button id="start-btn" data-open="test-modal" class="btn">Input Location and Date</button>
+                <button id="start-btn" data-open="test-modal" class="btn">Input Location and Date</button>
 
-            <div class="reveal" id="test-modal" data-reveal>
-                <h2>Enter Location</h2>
-                <p id="locationInput">Location:
+                <div class="reveal" id="test-modal" data-reveal>
+                    <h2>Enter Location</h2>
+                    <label for="cityInput">City: <br>Format: City, (State), (Country Code)</label>
                     <input type="text" id="cityInput">
-                </p>
-                <p>Format: City, (State Code), (Country Code)</p>
-                <p>
+                    <label for="date-input">Date (Optional):<br>Format: YYYY-MM-DD</label>
                     <input type="text" id="date-input">
-                </p>
-                <p>Format: YYYY-MM-DD</p>
-                <button id="button" class="submit success button" data-close>Submit</button>
-                <button class="close-button" data-close aria-label="Close modal" type="button">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                
-            </div>
+                    
+                    <button id="button" class="submit success button" data-close>Submit</button>
+                    <button class="close-button" data-close aria-label="Close modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
             </div>
             <!-- error modal -->
             <div class="reveal" id="errorModal" data-reveal>
                 <p class="lead">Invalid City Name or Date</p>
-                <p>Please check your spelling. The city you entered may also not be in our database. The date must be written in YYYY-MM-DD format.</p>
+                <p>Please check your spelling. The city you entered may also not be in our database. The date must be
+                    written in YYYY-MM-DD format.</p>
                 <button class="close-button" data-close aria-label="Close modal" type="button">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -146,11 +144,11 @@
             </div>
         </section>
     </main>
-    <footer id="footer-style"> 
+    <footer id="footer-style">
         <p>If you would like to view the ISS in real-time:
-        <a href="https://eol.jsc.nasa.gov/ESRS/HDEV/" target="_blank">ISS Livestream</a>
+            <a href="https://eol.jsc.nasa.gov/ESRS/HDEV/" target="_blank">ISS Livestream</a>
         </p>
-        <p id="creators">This page was created by 
+        <p id="creators">This page was created by
             <a href="https://github.com/alices9" target="_blank">Alice</a>,
             <a href="https://github.com/briabr" target="_blank">Bria</a>,
             <a href="https://github.com/Cwyan2483" target="_blank">Connor</a>,
