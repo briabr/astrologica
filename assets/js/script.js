@@ -118,6 +118,10 @@ function planetsAPI(data) {
     })
     .then(function (data2) {
         console.log(data2);
+        var celestialBodies = data2.data
+        var filteredData = celestialBodies.filter(function(body) {
+            return body.nakedEyeObject});
+        console.log(filteredData);
     })
 }
 
