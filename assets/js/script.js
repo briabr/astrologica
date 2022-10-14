@@ -91,7 +91,11 @@ function getAPI(location) {
 
     // select user input date or current date
     let date = document.getElementById("date-input").value ?? moment().format('YYYY-MM-DD');
-    
+    let save = JSON.parse(localStorage.getItem("saveSearch"))
+    if (save[cityName.value + " " + date]){
+        dataFunc(save[cityName.value + " " + date])
+        return
+    }
     casing();
     //Taking the user's input and updating city name to the user's input
     city.innerHTML = "-- " + upperCaseCityName + "--"
@@ -118,28 +122,36 @@ function getAPI(location) {
             endLoading();
             // data loaded 
             dataFunc(data);
+            localStorage.setItem("current data", JSON.stringify(data))
             
             
-            //Add a cityName to history array
-            if (cityName.value !== "" && !history.includes(cityName.value)){
-                history.push(cityName.value);
-            }
-            let date;
-            console.log(dateEl.value)
-            if (dateEl.value === ""){
-                date = moment().format('YYYY-MM-DD');
-            }else {
-                date = dateEl.value
-            }
-            if (cityName.value !== "" && !save[cityName.value + date]){
-                save[cityName.value + " " + date] = data;
-            }
             
-            //Set localStorage name/value pair
-            localStorage.setItem("cityList", JSON.stringify(history));
-            localStorage.setItem("saveSearch", JSON.stringify(save));
 
         })
+}
+function saveToLocalStorage (){
+    let data = JSON.parse(localStorage.getItem("current data"))
+    let save = JSON.parse(localStorage.getItem("saveSearch"))
+    //Add a cityName to history array
+    if (cityName.value !== "" && !history.includes(cityName.value)){
+        history.push(cityName.value);
+    }
+    let date;
+    console.log(dateEl.value)
+    if (dateEl.value === ""){
+        date = moment().format('YYYY-MM-DD');
+    }else {
+        date = dateEl.value
+    }
+    if (cityName.value !== "" && !save[cityName.value + date]){
+        save[cityName.value + " " + date] = data;
+    }
+    
+    //Set localStorage name/value pair
+    localStorage.setItem("cityList", JSON.stringify(history));
+    localStorage.setItem("saveSearch", JSON.stringify(save));
+
+
 }
 
 function showSavedSearches(){
@@ -161,8 +173,9 @@ function showSavedSearches(){
                 moonEl.textContent ="";
                 planetEl.textContent ="";
                 console.log(this.textContent)
-                getAPI(this.textContent)
-        
+                let saved = JSON.parse(localStorage.getItem("saveSearch"))   
+                let data = saved[this.textContent]
+                dataFunc(data)     
             })
 
             savedSearch.appendChild(newButton)
@@ -278,10 +291,10 @@ function podAPI() {
 podAPI();
 button.addEventListener("click", onClick);
 saveButton.addEventListener("click", function(){
-    getAPI()
+    saveToLocalStorage()
 });
 showSavedSearchesButton.addEventListener("click", showSavedSearches);
-showSavedSearches();
+
 
 
 
