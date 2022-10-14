@@ -7,6 +7,7 @@ var headerEl = document.getElementById("site-header");
 // Create variable to display events
 var sunEl = document.getElementById("sun-card");
 var moonEl = document.getElementById("moon-card");
+var planetEl = document.getElementById("planet-card");
 // Create variable to store "button" and "load-time" 
 var button = document.getElementById("button");
 var loadEl = document.getElementById("load-time");
@@ -34,6 +35,7 @@ function clear() {
     // Clears previous data
     sunEl.innerHTML = "";
     moonEl.innerHTML = "";
+    planetEl.innerHTML = "";
 }
 
 
@@ -119,9 +121,25 @@ function planetsAPI(data) {
     })
     .then(function (data2) {
         console.log(data2);
+        var celestialBodies = data2.data
+        var filteredData = celestialBodies.filter(function(body) {
+            return body.nakedEyeObject});
+        console.log(filteredData);
+        planetData(filteredData);
     })
 }
 
+function planetData(filteredData) {
+    planetEl.setAttribute("class","card");
+    var caption = document.createElement("p");
+    caption.textContent = "Under optimal conditions you can currently see:"
+    planetEl.appendChild(caption);
+    for (i=0; i < filteredData.length; i++) {
+        var visibleBody = document.createElement("p");
+        visibleBody.innerHTML = filteredData[i].name;
+        planetEl.appendChild(visibleBody);
+    }
+}
 
 function dataFunc(data) {
     // Creates card for the sunrise
