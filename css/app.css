@@ -13,10 +13,6 @@ section {
   margin: 20px 0;
 }
 
-:root {
-  --hue-neutral: 200;
-}
-
 .btn {
   --hue: var(--hue-neutral);
   border: 1px solid hsl(var(--hue), 100%, 30%);
@@ -31,14 +27,6 @@ section {
   border-color: black;
 }
 
-#site-header {
-  color: white;
-  font-size: 40px;
-  text-shadow: -1px 1px 2px rgb(124, 0, 240),
-    1px 1px 2px rgb(124, 0, 240),
-    1px -1px 0 rgb(124, 0, 240),
-    -1px -1px 0 rgb(124, 0, 240);
-}
 .button {
   border: none;
   color: white;
@@ -75,17 +63,26 @@ section {
 }
 
 .loader {
-border: 16px solid #f3f3f3; /* Light grey */
-border-top: 16px solid #3498db; /* Blue */
-border-radius: 50%; 
-width: 30px;
-height: 30px;
-animation: spin 2s linear infinite; 
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%; 
+  width: 30px;
+  height: 30px;
+  animation: spin 2s linear infinite; 
 } 
 
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+#site-header {
+  color: white;
+  font-size: 40px;
+  text-shadow: -1px 1px 2px rgb(124, 0, 240),
+    1px 1px 2px rgb(124, 0, 240),
+    1px -1px 0 rgb(124, 0, 240),
+    -1px -1px 0 rgb(124, 0, 240);
 }
 
 #footer-style {
