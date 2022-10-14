@@ -123,16 +123,16 @@ function planetsAPI(data) {
         var filteredData = celestialBodies.filter(function(body) {
             return body.nakedEyeObject});
         console.log(filteredData);
+        planetData(filteredData);
     })
 }
 
 function planetData(filteredData) {
-    filteredData.children().each(function(){
-        var bodyName = document.createElement("li");
-        bodyName.innerHTML = filteredData.data.name;
-
-    })
-
+    for (i=0; i < filteredData.length; i++) {
+        var visibleBody = document.createElement("p");
+        visibleBody.innerHTML = filteredData[i].name;
+        planetEl.appendChild(visibleBody);
+    }
 }
 
 function dataFunc(data) {
