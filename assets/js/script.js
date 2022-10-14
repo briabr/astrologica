@@ -34,6 +34,7 @@ function clear() {
     // Clears previous data
     sunEl.innerHTML = "";
     moonEl.innerHTML = "";
+    planetEl.innerHTML = "";
 }
 
 
