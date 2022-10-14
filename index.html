@@ -16,14 +16,7 @@
     <header id="site-header">
         <!-- Site Name -->
         <h1 id="site-name">Astrologica!</h1>
-        <!-- switch for light/dark mode -->
-        <div class="switch small">
-            <input class="switch-input" id="smallSwitch" type="checkbox" name="exampleSwitch">
-            <label class="switch-paddle" for="smallSwitch">
-              <span class="show-for-sr">Small Portions Only</span>
-            </label>
-          </div>
-
+    
         <h2 class="top-bar-left">
 
             <div class="top-bar-left"></div>
@@ -80,7 +73,10 @@
                 </div>
               </div>
             <!-- button to open a modal to input a city name -->
-            <button id="start-btn" data-open="test-modal" class="btn">Input Location (Time Coming Soon)</button>
+
+            <div>
+            <button id="start-btn" data-open="test-modal" class="btn">Input Location</button>
+
             <div class="reveal" id="test-modal" data-reveal>
                 <h2>Enter Location</h2>
                 <p id="locationInput">Location: 
@@ -96,6 +92,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
                 
+            </div>
             </div>
             <!-- error modal -->
             <div class="reveal" id="errorModal" data-reveal>
@@ -122,7 +119,7 @@
             </div>
             
             <!-- Where the content is displayed -->
-            <div class="card" id="sun-card">
+            <div class="" id="sun-card">
 
                 <div class="card-section" id="sunrise"></div>
                 <div id="sunset"></div>
@@ -131,7 +128,7 @@
                 </div>
             </div>
 
-            <div class="card" id="moon-card">
+            <div class="" id="moon-card">
 
                 <div class="card-section" id="moonrise"></div>
                 <div id="moonset"></div>
@@ -141,7 +138,19 @@
             </div>
         </section>
     </main>
-    <footer id="footer-style"> <a href="https://eol.jsc.nasa.gov/ESRS/HDEV/" target="_blank">ISS Livestream</a></footer>
+    <footer id="footer-style"> 
+        <p>If you would like to view the ISS in real-time:
+        <a href="https://eol.jsc.nasa.gov/ESRS/HDEV/" target="_blank">ISS Livestream</a>
+        </p>
+        <p id="creators">This page was created by 
+            <a href="https://github.com/alices9" target="_blank">Alice</a>,
+            <a href="https://github.com/briabr" target="_blank">Bria</a>,
+            <a href="https://github.com/Cwyan2483" target="_blank">Connor</a>,
+            <a href="https://github.com/DBanfieldKeller" target="_blank">Daniel</a>, and
+            <a href="https://github.com/JulesJ93" target="_blank">Jules</a>. Please click to view our GitHub pages.
+        </p>
+        <p>Thank you for visiting😊</p>
+    </footer>
 </body>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
