@@ -85,12 +85,6 @@ section {
 }
 
 #site-header {
-  color: rgb(255, 255, 255);
-  font-size: 40px;
-  text-shadow: -1px 1px 2px var(--purple),
-    1px 1px 2px var(--purple),
-    1px -1px 0 var(--purple),
-    -1px -1px 0 var(--purple);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100%;
@@ -105,11 +99,17 @@ section {
   background: linear-gradient(180deg, var(--purple) 0%, rgba(125, 26, 203, 0.0677083) 99.99%, rgba(211, 206, 206, 0) 100%);
   padding: 10px;
   font-size: smaller;
-  color: white
+  color: white;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
 }
 
 #footer-style a {
     color: goldenrod
+  
 }
 
 .top-bar {
@@ -122,8 +122,12 @@ section {
 #site-name {
   color: rgb(255, 255, 255);
   font-size: 60px;
-  text-shadow: -1px 1px 2px rgb(124, 0, 240),
-    1px 1px 2px rgb(124, 0, 240),
-    1px -1px 0 rgb(124, 0, 240),
-    -1px -1px 0 rgb(124, 0, 240);
+  text-shadow: -1px 1px 2px var(--purple),
+    1px 1px 2px var(--purple),
+    1px -1px 0 var(--purple),
+    -1px -1px 0 var(--purple);
+}
+
+footer p {
+  margin: 0px;
 }
