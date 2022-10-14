@@ -85,15 +85,12 @@ section {
 }
 
 #site-header {
-<<<<<<< HEAD
   color: rgb(255, 255, 255);
   font-size: 40px;
   text-shadow: -1px 1px 2px var(--purple),
     1px 1px 2px var(--purple),
     1px -1px 0 var(--purple),
     -1px -1px 0 var(--purple);
-=======
->>>>>>> f01ab441df7aadefdeee653c2e2f77b525a07971
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100%;
