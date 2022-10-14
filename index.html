@@ -20,9 +20,9 @@
         <div class="switch small">
             <input class="switch-input" id="smallSwitch" type="checkbox" name="exampleSwitch">
             <label class="switch-paddle" for="smallSwitch">
-              <span class="show-for-sr">Small Portions Only</span>
+                <span class="show-for-sr">Small Portions Only</span>
             </label>
-          </div>
+        </div>
 
         <h2 class="top-bar-left">
 
@@ -41,7 +41,8 @@
         </nav>
         <h2 id="intro">
             <!-- Introduction Content -->
-            <p> Welcome to Astrologica! This site allows you to check the Sunrise, Sunset, Moonrise, Moonset, and other astrological events in any
+            <p> Welcome to Astrologica! This site allows you to check the Sunrise, Sunset, Moonrise, Moonset, and other
+                astrological events in any
                 U.S. city.
                 Additionally, you can take a look at Nasa's picture of the day!
                 Be sure to save your searches for any future travels or events.
@@ -55,28 +56,28 @@
             <div class="title-bar" data-responsive-toggle="example-animated-menu" data-hide-for="medium">
                 <button class="menu-icon" type="button" data-toggle></button>
                 <div class="title-bar-title">Menu</div>
-              </div>
-              
-              <div class="top-bar" id="example-animated-menu" data-animate="hinge-in-from-top spin-out">
+            </div>
+
+            <div class="top-bar" id="example-animated-menu" data-animate="hinge-in-from-top spin-out">
                 <div class="top-bar-left">
-                  <ul class="dropdown menu" data-dropdown-menu>
-                    <li class="menu-text">Check the sunrise and moonrise anywhere!</li>
-                    <li>
-                      <a href="#">Menu</a>
-                      <ul class="menu vertical">
-                        <li><a href="#">About Astrologica</a></li>
-                        <li><a href="#">Meet The Team!</a></li>
-                        <li><a href="#">Free Resources</a></li>
-                      </ul>
-                    </li>
-                  </ul>
+                    <ul class="dropdown menu" data-dropdown-menu>
+                        <li class="menu-text">Check the sunrise and moonrise anywhere!</li>
+                        <li>
+                            <a href="#">Menu</a>
+                            <ul class="menu vertical">
+                                <li><a href="#">About Astrologica</a></li>
+                                <li><a href="#">Meet The Team!</a></li>
+                                <li><a href="#">Free Resources</a></li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
-              </div>
+            </div>
             <!-- button to open a modal to input a city name -->
             <button id="start-btn" data-open="test-modal" class="btn">Input Location (Time Coming Soon)</button>
             <div class="reveal" id="test-modal" data-reveal>
                 <h2>Enter Location</h2>
-                <p id="locationInput">Location: 
+                <p id="locationInput">Location:
                     <input type="text" id="cityInput">
                 </p>
                 <p>Format: City, (State Code), (Country Code)</p>
@@ -88,38 +89,38 @@
                 <button class="close-button" data-close aria-label="Close modal" type="button">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                
+
             </div>
             <!-- error modal -->
             <div class="reveal" id="errorModal" data-reveal>
                 <p class="lead">Invalid City Name</p>
                 <p>Please check your spelling. The city you entered may also not be in our database.</p>
                 <button class="close-button" data-close aria-label="Close modal" type="button">
-                  <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">&times;</span>
                 </button>
-              </div>
+            </div>
             <h2 id="city"></h2>
         </section>
         <section>
             <!-- This button allows users to save searches and the second button allows them to view their saved searches -->
-                
-                
-                <button class="button button2"> Save this search</button>
-                <button class="button button1"> View your saved searches</button>
-                
-                
+
+
+            <button class="button button2"> Save this search</button>
+            <button class="button button1"> View your saved searches</button>
+
+
             <h2 id="city"></h2>
             <div id="load-time"></div>
             <div class="loaderContainer">
                 <!-- <div class="loader"></div> -->
             </div>
-            
+
             <!-- Where the content is displayed -->
             <div class="card" id="sun-card">
 
                 <div class="card-section" id="sunrise"></div>
                 <div id="sunset"></div>
-                <div class=""> 
+                <div class="">
                     <img src="">
                 </div>
             </div>
@@ -133,7 +134,10 @@
                 </div>
             </div>
             <div class="card" id="planet-card">
-                <div></div>
+                <div class="card-section" id="visible-bodies"></div>
+                <div class="">
+                    <img src="" alt="">
+                </div>
             </div>
         </section>
     </main>
