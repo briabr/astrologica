@@ -7,6 +7,7 @@ var headerEl = document.getElementById("site-header");
 // Create variable to display events
 var sunEl = document.getElementById("sun-card");
 var moonEl = document.getElementById("moon-card");
+var planetEl = document.getElementById("planet-card");
 // Create variable to store "button" and "load-time" 
 var button = document.getElementById("button");
 var loadEl = document.getElementById("load-time");
@@ -125,6 +126,14 @@ function planetsAPI(data) {
     })
 }
 
+function planetData(filteredData) {
+    filteredData.children().each(function(){
+        var bodyName = document.createElement("li");
+        bodyName.innerHTML = filteredData.data.name;
+
+    })
+
+}
 
 function dataFunc(data) {
     // Creates card for the sunrise
