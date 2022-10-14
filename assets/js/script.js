@@ -128,6 +128,9 @@ function planetsAPI(data) {
 }
 
 function planetData(filteredData) {
+    var caption = document.createElement("p");
+    caption.textContent = "Under optimal conditions you can currently see:"
+    planetEl.appendChild(caption);
     for (i=0; i < filteredData.length; i++) {
         var visibleBody = document.createElement("p");
         visibleBody.innerHTML = filteredData[i].name;
