@@ -124,6 +124,7 @@ function planetsAPI(data) {
 
 function dataFunc(data) {
     // Creates card for the sunrise
+    sunEl.setAttribute("class", "card")
     var sunriseTime = document.createElement("p");
     sunriseTime.innerHTML = "The sun will rise at " + data.sunrise + ".";
     sunEl.appendChild(sunriseTime);
@@ -134,6 +135,7 @@ function dataFunc(data) {
     sunEl.appendChild(sunsetTime);
     
     // Creates card for the moorise
+    moonEl.setAttribute("class", "card")
     var moonriseTime = document.createElement("p");
     moonriseTime.innerHTML = "The moon will rise at " + data.moonrise + ".";
     moonEl.appendChild(moonriseTime);
