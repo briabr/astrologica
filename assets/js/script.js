@@ -16,6 +16,7 @@ var loaderEl = document.querySelector(".loaderContainer");
 var errorModal = document.getElementById("errorModal");
 // Modal trigger (probably a button to open the menu)
 
+var startbtnEl = document.getElementById("start-btn");
 // Create variable to store API key
 var apiKey = "0da3f74b44c04bb0a6dd84b85199b22c";
 
@@ -47,7 +48,7 @@ function loading() {
     var loadSpinner = document.createElement("div");//create
     loadSpinner.classList.add("loader");// build
     loaderEl.appendChild(loadSpinner);// place
-    
+    startbtnEl.disabled = true;
 }
 
 
@@ -56,7 +57,7 @@ function endLoading() {
     loadEl.innerHTML = "";
     //end the spinner 
     loaderEl.innerHTML = "";
-
+    startbtnEl.disabled = false;
 }
 
 
