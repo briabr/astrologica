@@ -25,6 +25,8 @@ section {
   padding: 5px 10px;
   color: white;
   outline: none;
+  margin-top: 10px;
+  margin-left: 13px;
 }
 
 .btn:hover {
