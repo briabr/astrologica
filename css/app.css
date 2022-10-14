@@ -104,6 +104,11 @@ section {
   background: linear-gradient(180deg, var(--purple) 0%, rgba(125, 26, 203, 0.0677083) 99.99%, rgba(211, 206, 206, 0) 100%);
   padding: 10px;
   font-size: smaller;
+  color: white
+}
+
+#footer-style a {
+    color:darkblue
 }
 
 .top-bar {
