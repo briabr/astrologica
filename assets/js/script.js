@@ -53,6 +53,7 @@ function loading() {
     var loadSpinner = document.createElement("div");//create
     loadSpinner.classList.add("loader");// build
     loaderEl.appendChild(loadSpinner);// place
+    // Makes the button unclickable to prevent second input while first one is still loading
     startbtnEl.disabled = true;
 }
 
@@ -62,6 +63,7 @@ function endLoading() {
     loadEl.innerHTML = "";
     //end the spinner 
     loaderEl.innerHTML = "";
+    // Re-enables the button so user can enter second input
     startbtnEl.disabled = false;
 }
 
@@ -168,6 +170,7 @@ function planetsAPI(data) {
 }
 
 function planetData(filteredData) {
+    planetEl.innerHTML = "";
     planetEl.setAttribute("class","card");
     var caption = document.createElement("p");
     caption.textContent = "Under optimal conditions you can currently see:"
@@ -218,9 +221,8 @@ function getFromLocalStorage() {
     let saveData = localStorage.getItem("saveSearch");
     console.log(historyData);
     console.log(saveData);
-    getFromLocalStorage();
 }
-
+getFromLocalStorage();
 
 //Display picture of the day 
 function podAPI() {
