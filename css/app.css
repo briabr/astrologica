@@ -82,17 +82,11 @@ section {
 }
 
 #site-header {
-  color: rgb(255, 255, 255);
-  font-size: 40px;
-  text-shadow: -1px 1px 2px rgb(124, 0, 240),
-    1px 1px 2px rgb(124, 0, 240),
-    1px -1px 0 rgb(124, 0, 240),
-    -1px -1px 0 rgb(124, 0, 240);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100%;
   padding: 50px;
-  
+  size: 100px;
 }
 
 #intro {
@@ -105,13 +99,18 @@ section {
   font-size: smaller;
 }
 
-.bar-align {
-  display: block;
-}
-
 .top-bar {
   border-radius: 8px;
-  margin-bottom: 7px;
   display: inline-block;
+  margin-top: -105px;
 
+}
+
+#site-name {
+  color: rgb(255, 255, 255);
+  font-size: 40px;
+  text-shadow: -1px 1px 2px rgb(124, 0, 240),
+    1px 1px 2px rgb(124, 0, 240),
+    1px -1px 0 rgb(124, 0, 240),
+    -1px -1px 0 rgb(124, 0, 240);
 }
