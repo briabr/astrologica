@@ -11,6 +11,10 @@ var moonEl = document.getElementById("moon-card");
 var button = document.getElementById("button");
 var loadEl = document.getElementById("load-time");
 var loaderEl = document.querySelector(".loaderContainer");
+var saveButton = document.querySelector(".button2");
+var showSavedSearchesButton = document.getElementById("showSavedSearches");
+var savedSearch = document.getElementById("savedSearch");
+
 
 var errorModal = document.getElementById("errorModal");
 // Modal trigger (probably a button to open the menu)
@@ -20,6 +24,7 @@ var apiKey = "0da3f74b44c04bb0a6dd84b85199b22c";
 
 //Create variable called history for localStorage function
 let history = [];
+let save = [];
 
 // Create onclick function calling the clear() and the loading() functions.
 function onClick() {
@@ -73,14 +78,20 @@ function casing() {
 
 
 
-function getAPI() {
+function getAPI(location) {
     // select user input date or current date
     let date = document.getElementById("date-input").value ?? moment().format('YYYY-MM-DD');
     
     casing();
     //Taking the user's input and updating city name to the user's input
     city.innerHTML = "-- " + upperCaseCityName + "--"
-    var requestURL = 'https://api.ipgeolocation.io/astronomy?apiKey=' + apiKey + '&location=' + cityName.value + '&date=' + date;
+    var requestURL;
+    if (location){
+        requestURL = 'https://api.ipgeolocation.io/astronomy?apiKey=' + apiKey + '&location=' + location + '&date=' + date;
+    }else {
+        requestURL = 'https://api.ipgeolocation.io/astronomy?apiKey=' + apiKey + '&location=' + cityName.value + '&date=' + date;
+    }
+
     
     fetch(requestURL)
     .then(function (response) {
@@ -101,10 +112,37 @@ function getAPI() {
             
             //Add a cityName to history array
             history.push(cityName.value);
+            save.push(cityName.value);
             //Set localStorage name/value pair
             localStorage.setItem("cityList", [history]);
+            localStorage.setItem("saveSearch", [save]);
+
         })
 }
+
+function showSavedSearches(){
+    savedSearch.innerHTML = "";
+    console.log("showing the saved data")
+    //get the cities from localstorage
+    var cities = localStorage.getItem("saveSearch")
+    console.log(cities)
+    if (cities) {
+        cities = cities.split(",")
+        console.log(cities)
+        for ( var i=0; i < cities.length; i++){
+            var newButton = document.createElement("button")
+            newButton.classList.add("button")
+            newButton.textContent = cities[i]
+            savedSearch.appendChild(newButton)
+            newButton.addEventListener("click", function(){
+                getAPI(cities[i])
+            })
+        }
+    } 
+    //list of buttons of past cities to appear
+    //when button clicked, the data of that city appear
+}
+
 
 
 function planetsAPI(data) {
@@ -123,6 +161,8 @@ function planetsAPI(data) {
 
 
 function dataFunc(data) {
+    sunEl.innerHTML = "";
+    moonEl.innerHTML = "";
     // Creates card for the sunrise
     var sunriseTime = document.createElement("p");
     sunriseTime.innerHTML = "The sun will rise at " + data.sunrise + ".";
@@ -154,7 +194,9 @@ function invalidCityMessage() {
 function getFromLocalStorage() {
     //retrieve localStorage name/value pair:
     let historyData = localStorage.getItem("cityList");
+    let saveData = localStorage.getItem("saveSearch");
     console.log(historyData);
+    console.log(saveData);
     getFromLocalStorage();
 }
 
@@ -186,6 +228,13 @@ function podAPI() {
 // Loads the picture of the day from NASA's API
 podAPI();
 button.addEventListener("click", onClick);
+saveButton.addEventListener("click", getAPI);
+showSavedSearchesButton.addEventListener("click", showSavedSearches);
 
 
+
+
+// saved past searches : 
+//where is it saving automatically
+// grab the code when they click this button
 
