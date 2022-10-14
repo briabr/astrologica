@@ -130,6 +130,7 @@ function planetsAPI(data) {
 }
 
 function planetData(filteredData) {
+    planetEl.setAttribute("class","card");
     var caption = document.createElement("p");
     caption.textContent = "Under optimal conditions you can currently see:"
     planetEl.appendChild(caption);
