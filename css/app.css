@@ -105,9 +105,13 @@ section {
   font-size: smaller;
 }
 
-.top-bar {
-  border-radius: 8px;
-  display: inline-block;
-  margin-bottom: 7px;
+.bar-align {
+  display: block;
 }
 
+.top-bar {
+  border-radius: 8px;
+  margin-bottom: 7px;
+  display: inline-block;
+
+}
