@@ -1,5 +1,6 @@
 :root {
   --hue-neutral: 200;
+  --purple: rgb(124, 0, 240);
 }
 
 body {
@@ -25,6 +26,8 @@ section {
   padding: 5px 10px;
   color: white;
   outline: none;
+  margin-top: 10px;
+  margin-left: 13px;
 }
 
 .btn:hover {
@@ -67,6 +70,10 @@ section {
   color: white;
 }
 
+.card {
+  width: 50%
+}
+
 .loader {
   border: 16px solid #f3f3f3; /* Light grey */
   border-top: 16px solid #3498db; /* Blue */
@@ -82,31 +89,65 @@ section {
 }
 
 #site-header {
-  color: rgb(255, 255, 255);
-  font-size: 40px;
-  text-shadow: -1px 1px 2px rgb(124, 0, 240),
-    1px 1px 2px rgb(124, 0, 240),
-    1px -1px 0 rgb(124, 0, 240),
-    -1px -1px 0 rgb(124, 0, 240);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100%;
   padding: 50px;
-  
+  height: 500px;
+}
+
+#about-tag {
+  color: blue;
+  text-align: center;
+  margin-top: 7px;
+}
+
+#start-btn {
+  height: 50px;
+  width: 300px;
+  font-size: 22px;
 }
 
 #intro {
-  font-size: 25px;
+  font-size: 15px;
+  text-align: center;
+  padding: 5px;
 }
 
 #footer-style {
-  background: linear-gradient(180deg, #8f44a1 0%, rgba(125, 26, 203, 0.0677083) 99.99%, rgba(211, 206, 206, 0) 100%);
+  background: linear-gradient(180deg, var(--purple) 0%, rgba(125, 26, 203, 0.0677083) 99.99%, rgba(211, 206, 206, 0) 100%);
   padding: 10px;
   font-size: smaller;
+  position: absolute;
+  color: white;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+#footer-style a {
+    color: goldenrod
+  
 }
 
 .top-bar {
   border-radius: 8px;
   display: inline-block;
-  margin-bottom: 7px;
+  margin-top: -105px;
+
+}
+
+#site-name {
+  color: rgb(255, 255, 255);
+  font-size: 60px;
+  text-shadow: -1px 1px 2px var(--purple),
+    1px 1px 2px var(--purple),
+    1px -1px 0 var(--purple),
+    -1px -1px 0 var(--purple);
+}
+
+footer p {
+  margin: 0px;
 }
