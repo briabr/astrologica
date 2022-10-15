@@ -2,12 +2,10 @@
 
 ## Description
 
-Our users want an application that would help them view events happening around them such as celestial movements. Our application will help the the user narrow down the astrological events to show the ones that are closest to them. The application will account for user's current whereabouts to display accurate information relevant to them. We learned a lot from this project particularly: writting functions, using APIs data, CSS, html and most importantly working with branches in GitHub.
+Our users want an application that would help them view events happening around them such as celestial movements. The application will help the the user narrow down the astrological events to show the ones that are closest to them. The application will account for user's current whereabouts to display accurate information relevant to them. We learned a lot from this project particularly: writting functions, using APIs data, CSS, html and most importantly working with branches in GitHub.
 
 
 ## Table of Contents (Optional)
-
-If your README is long, add a table of contents to make it easy for users to find what they need.
 
 - [Installation](#installation)
 - [Usage](#usage)
@@ -32,22 +30,21 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 List your collaborators, if any, with links to their GitHub profiles.
 
-Alice: 
-Daniel:
-Connor:
-Jules:
+Alice: https://github.com/alices9
+Daniel: https://github.com/DBanfieldKeller
+Connor: https://github.com/Cwyan2483
+Jules: https://github.com/JulesJ93
 Bria: https://github.com/briabr?tab=repositories
 
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section:
+Links to third-party assets creators : 
 
 https://eol.jsc.nasa.gov/ESRS/HDEV/
 https://api.ipgeolocation.io/astronomy?apiKey=
 https://github.com/csymlstd/visible-planets-api
 
 
-If you followed tutorials, include links to those here as well:
+Tutorials followed :
 https://get.foundation/
-
 
 
 ## License
