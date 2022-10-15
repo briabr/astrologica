@@ -57,6 +57,7 @@ function loading() {
     loaderEl.appendChild(loadSpinner);// place
     // Makes the button unclickable to prevent second input while first one is still loading
     startbtnEl.disabled = true;
+    saveButton.disabled = true;
 }
 
 
@@ -67,6 +68,7 @@ function endLoading() {
     loaderEl.innerHTML = "";
     // Re-enables the button so user can enter second input
     startbtnEl.disabled = false;
+    saveButton.disabled = false;
 }
 
 
