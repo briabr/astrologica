@@ -92,7 +92,7 @@ function getAPI(location) {
     // select user input date or current date
     let date = document.getElementById("date-input").value ?? moment().format('YYYY-MM-DD');
     let save = JSON.parse(localStorage.getItem("saveSearch"))
-    if (save[cityName.value + " " + date]){
+    if (save && save[cityName.value + ' ' + date]) {
         dataFunc(save[cityName.value + " " + date])
         return
     }
@@ -131,7 +131,7 @@ function getAPI(location) {
 }
 function saveToLocalStorage (){
     let data = JSON.parse(localStorage.getItem("current data"))
-    let save = JSON.parse(localStorage.getItem("saveSearch"))
+    let save = JSON.parse(localStorage.getItem('saveSearch')) || {};
     //Add a cityName to history array
     if (cityName.value !== "" && !history.includes(cityName.value)){
         history.push(cityName.value);
