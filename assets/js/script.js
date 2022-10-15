@@ -14,6 +14,7 @@ var loadEl = document.getElementById("load-time");
 var loaderEl = document.querySelector(".loaderContainer");
 var saveButton = document.querySelector(".button2");
 var showSavedSearchesButton = document.getElementById("showSavedSearches");
+var clearSearchButton = document.getElementById("clearbtn");
 var savedSearch = document.getElementById("savedSearch");
 var dateEl = document.getElementById("date-input")
 
@@ -117,11 +118,11 @@ function getAPI(location) {
         }
         })
         .then(function (data) {
-            planetsAPI(data);
             //as soon as the data appears, stop loading 
             endLoading();
             // data loaded 
             dataFunc(data);
+            planetsAPI(data);
             localStorage.setItem("current data", JSON.stringify(data))
             
             
@@ -184,6 +185,11 @@ function showSavedSearches(){
     } 
     //list of buttons of past cities to appear
     //when button clicked, the data of that city appear
+}
+
+function clearSavedSearches() {
+    localStorage.clear();
+    savedSearch.innerHTML = "";
 }
 //location and date
 
@@ -295,7 +301,7 @@ saveButton.addEventListener("click", function(){
 });
 showSavedSearchesButton.addEventListener("click", showSavedSearches);
 
-
+clearSearchButton.addEventListener("click", clearSavedSearches);
 
 
 
