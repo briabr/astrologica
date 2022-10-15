@@ -12,8 +12,9 @@ var planetEl = document.getElementById("planet-card");
 var button = document.getElementById("button");
 var loadEl = document.getElementById("load-time");
 var loaderEl = document.querySelector(".loaderContainer");
-var saveButton = document.querySelector(".button2");
+var saveButton = document.querySelector(".button1");
 var showSavedSearchesButton = document.getElementById("showSavedSearches");
+var clearSearchButton = document.getElementById("clearbtn");
 var savedSearch = document.getElementById("savedSearch");
 var dateEl = document.getElementById("date-input")
 
@@ -56,6 +57,7 @@ function loading() {
     loaderEl.appendChild(loadSpinner);// place
     // Makes the button unclickable to prevent second input while first one is still loading
     startbtnEl.disabled = true;
+    saveButton.disabled = true;
 }
 
 
@@ -66,6 +68,7 @@ function endLoading() {
     loaderEl.innerHTML = "";
     // Re-enables the button so user can enter second input
     startbtnEl.disabled = false;
+    saveButton.disabled = false;
 }
 
 
@@ -117,11 +120,11 @@ function getAPI(location) {
         }
         })
         .then(function (data) {
-            planetsAPI(data);
             //as soon as the data appears, stop loading 
             endLoading();
             // data loaded 
             dataFunc(data);
+            planetsAPI(data);
             localStorage.setItem("current data", JSON.stringify(data))
             
             
@@ -184,6 +187,12 @@ function showSavedSearches(){
     } 
     //list of buttons of past cities to appear
     //when button clicked, the data of that city appear
+}
+
+
+function clearSavedSearches() {
+    localStorage.clear();
+    savedSearch.innerHTML = "";
 }
 //location and date
 
@@ -295,7 +304,7 @@ saveButton.addEventListener("click", function(){
 });
 showSavedSearchesButton.addEventListener("click", showSavedSearches);
 
-
+clearSearchButton.addEventListener("click", clearSavedSearches);
 
 
 

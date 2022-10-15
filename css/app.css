@@ -70,6 +70,17 @@ section {
   color: white;
 }
 
+.button3 {
+  background-color: white;
+  color: black;
+  border: 2px solid #af4c4c;
+}
+
+.button3:hover {
+  background-color: #af4c4c;
+  color: white;
+}
+
 .card {
   width: 50%
 }
