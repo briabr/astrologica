@@ -10,12 +10,16 @@ Our users want an application that would help them view events happening around 
 - [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
+- [Demo](#demo)
+- [Websites](#websites)
 - [License](#license)
 - [Features](#features)
 
 ## Installation
 
-The user can navigate to the website and use menu and navigation bars along with the search buttons to obtain the information relevant to them. 
+Download or clone repository
+Open the main page (index.html) on your browser to view
+Use a text editor to view all coding, Visual Studio Coding is recommended.
 
 ## Usage
 
@@ -47,10 +51,17 @@ https://github.com/csymlstd/visible-planets-api
 Tutorials followed :
 https://get.foundation/
 
+## Demo
+
+
+## Websites
+https://github.com/Cwyan2483/astrologica
+live webpage link
 
 ## License
 
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
+Copyright (c) "full name". All rights reserved.
+Licensed under the "link to MIT" license.
 
 ---
 
