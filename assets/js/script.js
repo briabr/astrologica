@@ -12,7 +12,7 @@ var planetEl = document.getElementById("planet-card");
 var button = document.getElementById("button");
 var loadEl = document.getElementById("load-time");
 var loaderEl = document.querySelector(".loaderContainer");
-var saveButton = document.querySelector(".button2");
+var saveButton = document.querySelector(".button1");
 var showSavedSearchesButton = document.getElementById("showSavedSearches");
 var clearSearchButton = document.getElementById("clearbtn");
 var savedSearch = document.getElementById("savedSearch");
@@ -186,6 +186,7 @@ function showSavedSearches(){
     //list of buttons of past cities to appear
     //when button clicked, the data of that city appear
 }
+
 
 function clearSavedSearches() {
     localStorage.clear();
