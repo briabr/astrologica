@@ -1,100 +1,95 @@
 //Dependencies
-// Create variable to store "city input" and "city" ids 
+//Create variable to store "city input" and "city" elements 
 let cityName = document.getElementById("cityInput");
 let city = document.getElementById("city");
-// Create variable to store "site-header" id 
+//Create variable to store "site-header" elements 
 var headerEl = document.getElementById("site-header");
-// Create variable to display events
+//Create variable to display events
 var sunEl = document.getElementById("sun-card");
 var moonEl = document.getElementById("moon-card");
 var planetEl = document.getElementById("planet-card");
-// Create variable to store "button" and "load-time" 
-var button = document.getElementById("button");
+//Create variable to store "button" and "load-time" elements 
+var submitModalData = document.getElementById("button");
 var loadEl = document.getElementById("load-time");
 var loaderEl = document.querySelector(".loaderContainer");
+//Get button element for local storage 
 var saveButton = document.querySelector(".button1");
 var showSavedSearchesButton = document.getElementById("showSavedSearches");
-var clearSearchButton = document.getElementById("clearbtn");
 var savedSearch = document.getElementById("savedSearch");
+//Button element to clear the search data from html and local storage
+var clearSearchButton = document.getElementById("clearbtn");
+//Date element for getting selected date from the modal 
 var dateEl = document.getElementById("date-input")
-
-
+//Variable for invalid city name 
 var errorModal = document.getElementById("errorModal");
-// Modal trigger (probably a button to open the menu)
-
+//Trigger to open the modal for city name and date
 var startbtnEl = document.getElementById("start-btn");
-// Create variable to store API key
+//Variable to store API key
 var apiKey = "0da3f74b44c04bb0a6dd84b85199b22c";
-
-//Create variable called history for localStorage function
+//Variable called history for localStorage function
 let history = [];
 let save = {};
 
-// Create onclick function calling the clear() and the loading() functions.
+//Initialize data gathering process by calling clear, loading and getAPI functions
 function onClick() {
     clear();
     loading();
     getAPI();
 }
-
-
+//Clear divisions related to sun, moon, planet data 
 function clear() {
     // Clears previous data
     sunEl.innerHTML = "";
     moonEl.innerHTML = "";
     planetEl.innerHTML = "";
 }
-
-
 function loading() {
+    //Clear the default spinner behavior
     loadEl.innerHTML = "";
     //Create message for loading time 
     var loadTime = document.createElement("p");
     loadTime.innerHTML = "Please wait a few moments for the data to be loaded.";
     loadEl.appendChild(loadTime);
-    var loadSpinner = document.createElement("div");//create
-    loadSpinner.classList.add("loader");// build
-    loaderEl.appendChild(loadSpinner);// place
-    // Makes the button unclickable to prevent second input while first one is still loading
+    //Create variable for the spinner
+    var loadSpinner = document.createElement("div");
+    //Add class to build spinner from CSS
+    loadSpinner.classList.add("loader");
+    //Add spinner div to DOM (Document Object Model)
+    loaderEl.appendChild(loadSpinner);
+    //Makes the button unclickable to prevent second input while first one is still loading
     startbtnEl.disabled = true;
     saveButton.disabled = true;
 }
-
-
 function endLoading() {
-    //end the loaded message 
+    //Clear division that loads message 
     loadEl.innerHTML = "";
-    //end the spinner 
+    //Clear division that loads the spinner 
     loaderEl.innerHTML = "";
     // Re-enables the button so user can enter second input
     startbtnEl.disabled = false;
     saveButton.disabled = false;
 }
-
-
+// Create variable with empty string value
 var upperCaseCityName = "";
-// Will fix the display name of the city input so that it is correctly capitalized
+// Capitalize city input 
 function casing() {
     upperCaseCityName = "";
     var cityArr = cityName.value.split(" ");
-
+    
     for (var i = 0; i < cityArr.length; i++) {
-        upperCaseCityName += cityArr[i].charAt(0).toUpperCase() + cityArr[i].slice(1) + " ";
+    // Take first character from city name and capitalize it
+    upperCaseCityName += cityArr[i].charAt(0).toUpperCase() + cityArr[i].slice(1) + " ";
     }
     return upperCaseCityName;
 }
-
-
-
-
-function getAPI(location) {
-    console.log('location', location);
+// Fetch sun, moon and planet APIs data 
+function getAPI() {
     console.log('cityName.value', cityName.value)
-
-
-    // select user input date or current date
+    //Select user input date or current date
     let date = document.getElementById("date-input").value ?? moment().format('YYYY-MM-DD');
+    // Get values from localStorage for savedSearches 
     let save = JSON.parse(localStorage.getItem("saveSearch"))
+    //If data found in local storage, then call dataFunc to set sun, moon and planet data.
     if (save && save[cityName.value + ' ' + date]) {
         dataFunc(save[cityName.value + " " + date])
         return
@@ -103,13 +98,8 @@ function getAPI(location) {
     //Taking the user's input and updating city name to the user's input
     city.innerHTML = "-- " + upperCaseCityName + "--"
     var requestURL;
-    if (location){
-        requestURL = 'https://api.ipgeolocation.io/astronomy?apiKey=' + apiKey + '&location=' + location + '&date=' + date;
-    }else {
-        requestURL = 'https://api.ipgeolocation.io/astronomy?apiKey=' + apiKey + '&location=' + cityName.value + '&date=' + date;
-    }
-
-    
+    requestURL = 'https://api.ipgeolocation.io/astronomy?apiKey=' + apiKey + '&location=' + cityName.value + '&date=' + date;
+    //Make fetch request to external/third party API
     fetch(requestURL)
     .then(function (response) {
         if (!response.ok) {
@@ -120,20 +110,19 @@ function getAPI(location) {
         }
         })
         .then(function (data) {
-            //as soon as the data appears, stop loading 
+            //As soon as the data appears, stop loading 
             endLoading();
-            // data loaded 
+            //Data loaded 
             dataFunc(data);
             planetsAPI(data);
+            //Set localStorage with current data
             localStorage.setItem("current data", JSON.stringify(data))
-            
-            
-            
-
         })
 }
 function saveToLocalStorage (){
+    //Gettting the current data from localStorage
     let data = JSON.parse(localStorage.getItem("current data"))
+    //Getting the saved searches from the localStorage 
     let save = JSON.parse(localStorage.getItem('saveSearch')) || {};
     //Add a cityName to history array
     if (cityName.value !== "" && !history.includes(cityName.value)){
@@ -141,31 +130,31 @@ function saveToLocalStorage (){
     }
     let date;
     console.log(dateEl.value)
+    //If no date provided 
     if (dateEl.value === ""){
+        //Assign current date to date variable 
         date = moment().format('YYYY-MM-DD');
-    }else {
+    }else { 
+        //Assign user's provided date to date variable
         date = dateEl.value
     }
+    //If city name is provided and it is not previousely saved, then save city name 
     if (cityName.value !== "" && !save[cityName.value + date]){
         save[cityName.value + " " + date] = data;
     }
-    
-    //Set localStorage name/value pair
+    //Set localStorage value for city list and saved search 
     localStorage.setItem("cityList", JSON.stringify(history));
     localStorage.setItem("saveSearch", JSON.stringify(save));
-
-
 }
-
 function showSavedSearches(){
+    //Clear the saved searches 
     savedSearch.innerHTML = "";
     console.log("showing the saved data")
-    //get the cities from localstorage
+    //Get the cities from localstorage
     var cities = JSON.parse(localStorage.getItem("saveSearch"))
     console.log(cities)
     if (cities) {
-        // cities = cities.split(",")
-        console.log("this should be an aarrray of cities: ", cities)
+        console.log("this should be an array of cities: ", cities)
         for ( var i=0; i < Object.keys(cities).length; i++){
             
             var newButton = document.createElement("button")
@@ -176,28 +165,22 @@ function showSavedSearches(){
                 moonEl.textContent ="";
                 planetEl.textContent ="";
                 console.log(this.textContent)
-                let saved = JSON.parse(localStorage.getItem("saveSearch"))   
+                //Convert sttring based data to Json object data using Json.parse
+                let saved = JSON.parse(localStorage.getItem("saveSearch"))  
+                //Get the appropriate saved search data 
                 let data = saved[this.textContent]
+                //Calling dataFunc to display sunrise, moonrise and planet data.
                 dataFunc(data)     
             })
-
             savedSearch.appendChild(newButton)
-        
         }
     } 
-    //list of buttons of past cities to appear
-    //when button clicked, the data of that city appear
 }
-
-
 function clearSavedSearches() {
     localStorage.clear();
     savedSearch.innerHTML = "";
 }
 //location and date
-
-
-
 function planetsAPI(data) {
     var latitude = data.location.latitude;
     var longitude = data.location.longitude;
@@ -256,15 +239,12 @@ function dataFunc(data) {
     moonEl.appendChild(moonsetTime);
 }
 
-
 function invalidCityMessage() {
     $('#errorModal').foundation('open');
     
 }
-
-
 function getFromLocalStorage() {
-    //retrieve localStorage name/value pair:
+    //Get local storge data for city list and saveSEarch 
     let historyData = JSON.parse(localStorage.getItem("cityList"));
     let saveData = JSON.parse(localStorage.getItem("saveSearch"));
     console.log(historyData);
@@ -283,32 +263,12 @@ function podAPI() {
         headerEl.setAttribute("style", "background-image: url(" + data.url + ")");
     })
 }
-
-// getAPI
-// Grab user location
-// May need to convert City name to coordinates
-// Autocomplete (optional)
-
-// User interaction
-// Textbox for user to input location
-// Submit button
-// Using a Modal?
-// Button for user to save event
-// Button for user to remove saved event
-
 // Loads the picture of the day from NASA's API
 podAPI();
-button.addEventListener("click", onClick);
+submitModalData.addEventListener("click", onClick);
 saveButton.addEventListener("click", function(){
     saveToLocalStorage()
 });
 showSavedSearchesButton.addEventListener("click", showSavedSearches);
-
 clearSearchButton.addEventListener("click", clearSavedSearches);
-
-
-
-// saved past searches : 
-//where is it saving automatically
-// grab the code when they click this button
 
