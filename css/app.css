@@ -5,6 +5,10 @@
 
 body {
   background-color: gray;
+  min-height: 86vh;
+    position: relative;
+    padding-bottom: 10px;
+
 }
 
 section {
@@ -128,19 +132,16 @@ section {
 #footer-style {
   background: linear-gradient(180deg, var(--purple) 0%, rgba(125, 26, 203, 0.0677083) 99.99%, rgba(211, 206, 206, 0) 100%);
   padding: 10px;
-  font-size: smaller;
-  position: absolute;
-  color: white;
-  position: fixed;
+  font-size: smaller;  color: white;
   left: 0;
   bottom: 0;
   width: 100%;
   text-align: center;
+  position: relative;
 }
 
 #footer-style a {
-    color: goldenrod
-  
+    color: goldenrod;
 }
 
 .top-bar {
