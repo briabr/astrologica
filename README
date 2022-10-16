@@ -2,7 +2,7 @@
 
 ## Description
 
-Our users want an application that would help them view events happening around them such as celestial movements. The application will help the the user narrow down the astrological events to show the ones that are closest to them. The application will also account for user's current whereabouts to display accurate information relevant to them. We learned a lot from this project particularly: writting functions, using APIs data, using CSS framework other than bootstraps, html and most importantly working with branches in GitHub.
+Our users want an application that would help them view events happening around them such as celestial movements. The application will help the the user narrow down the astrological events to show the ones that are closest to them. The application will also account for user's current whereabouts to display accurate information relevant to them. We learned a lot from this project particularly: writting functions, using APIs data, using CSS framework other than bootstrap, html and most importantly working with branches in GitHub.
 
 
 ## Table of Contents
@@ -10,7 +10,6 @@ Our users want an application that would help them view events happening around 
 - [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
-- [Demo](#demo)
 - [Websites](#websites)
 - [License](#license)
 - [Features](#features)
@@ -23,13 +22,10 @@ Use a text editor to view all coding, Visual Studio Coding is recommended.
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+<img src="./assets/images/astrologica-ss.png" alt="screenshot of Astrologica site">
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+User can click on our input button to open up a modal that allows them to enter a city name and an optional date. When they hit submit, the data will load and will print on the screen. The user can use the save search button to keep this data to local storage. The user can use the view your saved searches button to view the saved search. Lastly, there is a clear search button to clear the saved searches.
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
 
 ## Credits
 
@@ -50,8 +46,6 @@ Links to third-party assets creators :
 
 Tutorials followed :
 [CSS Foundation](https://get.foundation/)
-
-## Demo
 
 ## Websites
 [Astrologica Github](https://github.com/Cwyan2483/astrologica)

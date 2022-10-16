@@ -85,13 +85,7 @@ function casing() {
 }
 
 
-
-
 function getAPI(location) {
-    console.log('location', location);
-    console.log('cityName.value', cityName.value)
-
-
     // select user input date or current date
     let date = document.getElementById("date-input").value ?? moment().format('YYYY-MM-DD');
     let save = JSON.parse(localStorage.getItem("saveSearch"))
@@ -109,7 +103,7 @@ function getAPI(location) {
         requestURL = 'https://api.ipgeolocation.io/astronomy?apiKey=' + apiKey + '&location=' + cityName.value + '&date=' + date;
     }
 
-    
+
     fetch(requestURL)
     .then(function (response) {
         if (!response.ok) {
@@ -126,10 +120,6 @@ function getAPI(location) {
             dataFunc(data);
             planetsAPI(data);
             localStorage.setItem("current data", JSON.stringify(data))
-            
-            
-            
-
         })
 }
 function saveToLocalStorage (){
@@ -140,7 +130,7 @@ function saveToLocalStorage (){
         history.push(cityName.value);
     }
     let date;
-    console.log(dateEl.value)
+
     if (dateEl.value === ""){
         date = moment().format('YYYY-MM-DD');
     }else {
@@ -153,19 +143,15 @@ function saveToLocalStorage (){
     //Set localStorage name/value pair
     localStorage.setItem("cityList", JSON.stringify(history));
     localStorage.setItem("saveSearch", JSON.stringify(save));
-
-
 }
 
 function showSavedSearches(){
     savedSearch.innerHTML = "";
-    console.log("showing the saved data")
+
     //get the cities from localstorage
     var cities = JSON.parse(localStorage.getItem("saveSearch"))
-    console.log(cities)
+
     if (cities) {
-        // cities = cities.split(",")
-        console.log("this should be an aarrray of cities: ", cities)
         for ( var i=0; i < Object.keys(cities).length; i++){
             
             var newButton = document.createElement("button")
@@ -175,14 +161,12 @@ function showSavedSearches(){
                 sunEl.textContent = "";
                 moonEl.textContent ="";
                 planetEl.textContent ="";
-                console.log(this.textContent)
+
                 let saved = JSON.parse(localStorage.getItem("saveSearch"))   
                 let data = saved[this.textContent]
                 dataFunc(data)     
             })
-
             savedSearch.appendChild(newButton)
-        
         }
     } 
     //list of buttons of past cities to appear
@@ -208,11 +192,9 @@ function planetsAPI(data) {
         return response.json();
     })
     .then(function (data2) {
-        console.log(data2);
         var celestialBodies = data2.data
         var filteredData = celestialBodies.filter(function(body) {
             return body.nakedEyeObject});
-        console.log(filteredData);
         planetData(filteredData);
     })
 }
@@ -267,12 +249,10 @@ function getFromLocalStorage() {
     //retrieve localStorage name/value pair:
     let historyData = JSON.parse(localStorage.getItem("cityList"));
     let saveData = JSON.parse(localStorage.getItem("saveSearch"));
-    console.log(historyData);
-    console.log(saveData);
 }
-getFromLocalStorage();
 
-//Display picture of the day 
+
+// Display picture of the day 
 function podAPI() {
     nasaURL = "https://api.nasa.gov/planetary/apod?api_key=YZ4bgMRaiHrTUwO9oeZ8kogbpKg1YYlpyyovcfkU"
     fetch(nasaURL)
@@ -284,20 +264,12 @@ function podAPI() {
     })
 }
 
-// getAPI
-// Grab user location
-// May need to convert City name to coordinates
-// Autocomplete (optional)
 
-// User interaction
-// Textbox for user to input location
-// Submit button
-// Using a Modal?
-// Button for user to save event
-// Button for user to remove saved event
-
-// Loads the picture of the day from NASA's API
+// On page load
 podAPI();
+getFromLocalStorage();
+
+// When user clicks
 button.addEventListener("click", onClick);
 saveButton.addEventListener("click", function(){
     saveToLocalStorage()
@@ -305,10 +277,4 @@ saveButton.addEventListener("click", function(){
 showSavedSearchesButton.addEventListener("click", showSavedSearches);
 
 clearSearchButton.addEventListener("click", clearSavedSearches);
-
-
-
-// saved past searches : 
-//where is it saving automatically
-// grab the code when they click this button
 
