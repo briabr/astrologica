@@ -82,9 +82,9 @@ function casing() {
     }
     return upperCaseCityName;
 }
+
 // Fetch sun, moon and planet APIs data 
 function getAPI() {
-    console.log('cityName.value', cityName.value)
     //Select user input date or current date
     let date = document.getElementById("date-input").value ?? moment().format('YYYY-MM-DD');
     // Get values from localStorage for savedSearches 
@@ -98,6 +98,7 @@ function getAPI() {
     //Taking the user's input and updating city name to the user's input
     city.innerHTML = "-- " + upperCaseCityName + "--"
     var requestURL;
+
     requestURL = 'https://api.ipgeolocation.io/astronomy?apiKey=' + apiKey + '&location=' + cityName.value + '&date=' + date;
     //Make fetch request to external/third party API
     fetch(requestURL)
@@ -129,7 +130,7 @@ function saveToLocalStorage (){
         history.push(cityName.value);
     }
     let date;
-    console.log(dateEl.value)
+
     //If no date provided 
     if (dateEl.value === ""){
         //Assign current date to date variable 
@@ -149,12 +150,11 @@ function saveToLocalStorage (){
 function showSavedSearches(){
     //Clear the saved searches 
     savedSearch.innerHTML = "";
-    console.log("showing the saved data")
+
     //Get the cities from localstorage
     var cities = JSON.parse(localStorage.getItem("saveSearch"))
-    console.log(cities)
+
     if (cities) {
-        console.log("this should be an array of cities: ", cities)
         for ( var i=0; i < Object.keys(cities).length; i++){
             
             var newButton = document.createElement("button")
@@ -164,7 +164,7 @@ function showSavedSearches(){
                 sunEl.textContent = "";
                 moonEl.textContent ="";
                 planetEl.textContent ="";
-                console.log(this.textContent)
+
                 //Convert sttring based data to Json object data using Json.parse
                 let saved = JSON.parse(localStorage.getItem("saveSearch"))  
                 //Get the appropriate saved search data 
@@ -191,11 +191,9 @@ function planetsAPI(data) {
         return response.json();
     })
     .then(function (data2) {
-        console.log(data2);
         var celestialBodies = data2.data
         var filteredData = celestialBodies.filter(function(body) {
             return body.nakedEyeObject});
-        console.log(filteredData);
         planetData(filteredData);
     })
 }
@@ -247,12 +245,10 @@ function getFromLocalStorage() {
     //Get local storge data for city list and saveSEarch 
     let historyData = JSON.parse(localStorage.getItem("cityList"));
     let saveData = JSON.parse(localStorage.getItem("saveSearch"));
-    console.log(historyData);
-    console.log(saveData);
 }
-getFromLocalStorage();
 
-//Display picture of the day 
+
+// Display picture of the day 
 function podAPI() {
     nasaURL = "https://api.nasa.gov/planetary/apod?api_key=YZ4bgMRaiHrTUwO9oeZ8kogbpKg1YYlpyyovcfkU"
     fetch(nasaURL)
@@ -263,8 +259,14 @@ function podAPI() {
         headerEl.setAttribute("style", "background-image: url(" + data.url + ")");
     })
 }
-// Loads the picture of the day from NASA's API
+
+
+// On page load
 podAPI();
+getFromLocalStorage();
+
+// When user clicks
+button.addEventListener("click", onClick);
 submitModalData.addEventListener("click", onClick);
 saveButton.addEventListener("click", function(){
     saveToLocalStorage()

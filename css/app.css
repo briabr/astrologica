@@ -107,6 +107,7 @@ section {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100%;
+  width: 100%;
   padding: 50px;
   height: 500px;
 }
@@ -163,3 +164,30 @@ section {
 footer p {
   margin: 0px;
 }
+
+@media only screen and (max-width: 1040px) { 
+  .card {
+    width: 75%;
+  }
+  #site-header {
+    height: auto;
+  }
+  #site-name {
+    font-size: 50px;
+  }
+}
+
+@media only screen and (max-width: 360px) { 
+  .card {
+    width: 100%;
+  }
+  #site-header {
+    height: auto;
+    padding: 0px;
+  }
+  #site-name {
+    text-align: center;
+    font-size: 30px;
+  }
+}
+
