@@ -1,9 +1,7 @@
 # <Astrologica>
 
 ## Description
-
 Our users want an application that would help them view events happening around them such as celestial movements. The application will help the the user narrow down the astrological events to show the ones that are closest to them. The application will also account for user's current whereabouts to display accurate information relevant to them. We learned a lot from this project particularly: writting functions, using APIs data, using CSS framework other than bootstrap, html and most importantly working with branches in GitHub.
-
 
 ## Table of Contents
 
